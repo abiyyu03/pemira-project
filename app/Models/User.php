@@ -24,7 +24,8 @@ class User extends Authenticatable
         'password',
         'nim',
         'year',
-        'major'
+        'major',
+        'is_employee',
     ];
 
     /**

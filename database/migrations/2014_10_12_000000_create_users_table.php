@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('major');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_employee')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
