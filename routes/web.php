@@ -33,7 +33,19 @@ Route::get('/vote/before_bem', function () {
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
         return view('admin.pages.dashboard');
-    });
+    })->name('admin.dashboard');
+
+    Route::get('/vote', function () {
+        return view('admin.pages.vote.index');
+    })->name('admin.vote_index');
+
+    Route::get('/mahasiswa', function () {
+        return view('admin.pages.mahasiswa.index');
+    })->name('admin.mahasiswa_index');
+
+    Route::get('/kandidat', function () {
+        return view('admin.pages.kandidat.index');
+    })->name('admin.kandidat_index');
 });
 
 // Auth Controller

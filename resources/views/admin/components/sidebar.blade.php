@@ -3,12 +3,13 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="index.html"><img src="./assets/compiled/svg/logo.svg" alt="Logo" srcset=""></a>
+                    <a href="#">
+                        KPR NF</a>
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20"
-                        height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true"
+                        role="img" class="iconify iconify--system-uicons" width="20" height="20"
+                        preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
                         <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round"
                             stroke-linejoin="round">
                             <path
@@ -41,18 +42,56 @@
         </div>
         <div class="sidebar-menu">
             <ul class="menu">
-                <li class="sidebar-title">Menu</li>
-
-                <li class="sidebar-item active ">
-                    <a href="index.html" class='sidebar-link'>
-                        <i class="bi bi-grid-fill"></i>
-                        <span>Dashboard</span>
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-person-circle"></i>
+                        <span>Hi, {{ auth()->user()->name ?? 'guest' }}</span>
                     </a>
+
+                    <ul class="submenu ">
+
+                        <li class="submenu-item  ">
+                            <a href="component-accordion.html" class="submenu-link">Configuration</a>
+
+                        </li>
+
+                        <li class="submenu-item  ">
+                            <a href="component-alert.html" class="submenu-link">Logout</a>
+
+                        </li>
+
+                    </ul>
 
 
                 </li>
+                <li class="sidebar-title">Menu</li>
 
-                <li class="sidebar-item  has-sub">
+                <li class="sidebar-item {{ request()->segment(2) == '' ? 'active' : '' }} ">
+                    <a href="{{ route('admin.dashboard') }}" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->segment(2) == 'vote' ? 'active' : '' }} ">
+                    <a href="{{ route('admin.vote_index') }}" class='sidebar-link'>
+                        <i class="bi bi-person-check"></i>
+                        <span>Vote</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->segment(2) == 'mahasiswa' ? 'active' : '' }}">
+                    <a href="{{ route('admin.mahasiswa_index') }}" class='sidebar-link'>
+                        <i class="bi bi-people-fill"></i>
+                        <span>Mahasiswa</span>
+                    </a>
+                </li>
+                <li class="sidebar-item {{ request()->segment(2) == 'kandidat' ? 'active' : '' }}">
+                    <a href="{{ route('admin.kandidat_index') }}" class='sidebar-link'>
+                        <i class="bi bi-person-square"></i>
+                        <span>Kandidat</span>
+                    </a>
+                </li>
+
+                {{-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
                         <i class="bi bi-stack"></i>
                         <span>Components</span>
@@ -234,7 +273,7 @@
                     </ul>
 
 
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
