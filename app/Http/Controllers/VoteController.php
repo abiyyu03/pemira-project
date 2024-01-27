@@ -23,7 +23,7 @@ class VoteController extends Controller
         return view('vote.index', compact('candidates'));
     }
 
-    public function store(Request $request)
+    public function vote(Request $request)
     {
         $request->validate([
             'candidate_id' => 'required|exists:candidates,id',
