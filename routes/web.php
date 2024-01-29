@@ -46,6 +46,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/kandidat', function () {
         return view('admin.pages.kandidat.index');
     })->name('admin.kandidat_index');
+
+    Route::get('/kandidat/create', function () {
+        return view('admin.pages.kandidat.create');
+    })->name('admin.kandidat_create');
 });
 
 // Auth Controller
