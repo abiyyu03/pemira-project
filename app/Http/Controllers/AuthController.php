@@ -39,7 +39,7 @@ class AuthController extends Controller
             if (AuthHasRoles('Admin')) {
                 return redirect()->to('/admin');
             } else {
-                return redirect()->to('/voting');
+                return redirect()->to('/ready');
             }
         } else {
             // Alert::error('Gagal', 'NIM & Password Salah');
