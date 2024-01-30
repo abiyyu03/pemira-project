@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,14 +21,11 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('pages.auth.register');
 });
-Route::get('/vote/bem', function () {
-    return view('pages.votes.vote_bem');
-});
-Route::get('/vote/hima', function () {
-    return view('pages.votes.vote_hima');
-});
-Route::get('/vote/before_bem', function () {
-    return view('pages.transition_vote.before_bem');
+Route::middleware('auth')->group(function () {
+    Route::get('/vote/bem', [VoteController::class, 'indexBem']);
+    Route::get('/vote/hima', [VoteController::class, 'indexHima']);
+    Route::get('/ready', [VoteController::class, 'readyToVote']);
+    Route::post('/store_temp_vote', [VoteController::class, 'storeTemporaryVoteData'])->name('temp_vote');
 });
 
 Route::prefix('admin')->group(function () {
@@ -61,4 +59,4 @@ Route::prefix('auth')->group(function ($routes) {
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
