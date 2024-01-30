@@ -76,9 +76,7 @@ class VoteController extends Controller
         //     'candidate_id' => 'required|exists:candidates,id',
         // ]);
 
-        // Check if user has voted
-        if (Vote::hasVoted(Auth::user()->id)) {
-            // Alert::error('Gagal', 'Anda sudah melakukan voting');
+        if ($this->isUserAlreadyVote()) {
             return redirect()->route('home');
         }
 
