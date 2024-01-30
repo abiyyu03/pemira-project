@@ -15,8 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('nim')->unique();
+            $table->integer('year');
+            $table->integer('status')->default(0);
+            $table->string('major');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_employee')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
