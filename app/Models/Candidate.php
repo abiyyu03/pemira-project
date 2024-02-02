@@ -15,6 +15,7 @@ class Candidate extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'candidate_number',
         'leader_id',
         'vice_leader_id',
         'vision_mission',
