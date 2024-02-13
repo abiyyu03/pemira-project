@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/app-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/compiled/css/iconly.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
 
 <body>
-    <script src="assets/static/js/initTheme.js"></script>
+    <script src="{{ asset('assets/static/js/initTheme.js') }}"></script>
     <div id="app">
         @include('admin.components.sidebar')
         <div id="main">
@@ -24,6 +26,8 @@
             @yield('contents')
 
             @include('admin.components.footer')
+            @stack('scripts')
+            @include('sweetalert::alert')
         </div>
     </div>
     <script src="{{ asset('assets/static/js/components/dark.js') }}"></script>
@@ -34,6 +38,12 @@
     <!-- Need: Apexcharts -->
     <script src="{{ asset('assets/extensions/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/pages/dashboard.js') }}"></script>
+
+    {{-- select 2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    {{-- datatables --}}
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 </body>
 

@@ -7,6 +7,7 @@ use App\Models\Vote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\Models\User;
 
 class VoteController extends Controller
 {
@@ -34,7 +35,7 @@ class VoteController extends Controller
     //called after user voted bem
     public function indexHima()
     {
-        if ($this->isUserAlreadyVoted()) {
+        if ($this->isUserAlreadyVote()) {
             return redirect()->route('home');
         }
 
@@ -89,7 +90,7 @@ class VoteController extends Controller
         // Logout user
         Auth::logout();
 
-        Alert::success('Berhasil', 'Terima kasih sudah melakukan voting voting');
+        Alert::success('Berhasil', 'Terima kasih sudah melakukan voting');
         return redirect()->route('login');
     }
 }

@@ -36,6 +36,24 @@ class Vote extends Model
         return Vote::where('user_id', $user_id)->exists();
     }
 
+    //get voters
+    public static function getVoterData($type)
+    {
+        if ($type == 'bem') {
+            return Vote::whereHas('candidate', function ($q) {
+                $q->where('category', 'Badan Eksekutif Mahasiswa');
+            })->get();
+        } else if ($type == 'hmpsti') {
+            return Vote::whereHas('candidate', function ($q) {
+                $q->where('category', 'Himpunan Mahasiswa Teknik Informatika');
+            })->get();
+        } else if ($type == 'hmpssi') {
+            return Vote::whereHas('candidate', function ($q) {
+                $q->where('category', 'Himpunan Mahasiswa Sistem Informasi');
+            })->get();
+        }
+    }
+
     // Insert vote
     public static function insertVote($candidate_id, $user_id)
     {

@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CandidateController;
+use App\Http\Controllers\Admin\MahasiswaController;
+use App\Http\Controllers\Admin\VoterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
@@ -33,21 +36,28 @@ Route::prefix('admin')->group(function () {
         return view('admin.pages.dashboard');
     })->name('admin.dashboard');
 
-    Route::get('/vote', function () {
-        return view('admin.pages.vote.index');
-    })->name('admin.vote_index');
+    Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('admin.mahasiswa_index');
+    Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('admin.mahasiswa_create');
+    Route::post('/mahasiswa/store', [MahasiswaController::class, 'store'])->name('admin.mahasiswa_store');
+    Route::get('/mahasiswa/edit/{id}', [MahasiswaController::class, 'edit'])->name('admin.mahasiswa_edit');
+    Route::put('/mahasiswa/update/{id}', [MahasiswaController::class, 'update'])->name('admin.mahasiswa_update');
+    Route::get('/mahasiswa/delete/{id}', [MahasiswaController::class, 'destroy'])->name('admin.mahasiswa_delete');
 
-    Route::get('/mahasiswa', function () {
-        return view('admin.pages.mahasiswa.index');
-    })->name('admin.mahasiswa_index');
+    Route::get('/kandidat', [CandidateController::class, 'index'])->name('admin.kandidat_index');
+    Route::get('/kandidat/create', [CandidateController::class, 'create'])->name('admin.kandidat_create');
+    Route::post('/kandidat/store', [CandidateController::class, 'store'])->name('admin.kandidat_store');
+    Route::get('/kandidat/edit/{id}', [CandidateController::class, 'edit'])->name('admin.kandidat_edit');
+    Route::put('/kandidat/update/{id}', [CandidateController::class, 'update'])->name('admin.kandidat_update');
+    Route::get('/kandidat/delete/{id}', [CandidateController::class, 'destroy'])->name('admin.kandidat_delete');
 
-    Route::get('/kandidat', function () {
-        return view('admin.pages.kandidat.index');
-    })->name('admin.kandidat_index');
-
-    Route::get('/kandidat/create', function () {
-        return view('admin.pages.kandidat.create');
-    })->name('admin.kandidat_create');
+    Route::get('/vote/bem', [VoterController::class, 'indexBEM'])->name('admin.voter_bem');
+    Route::get('/vote/hmpsti', [VoterController::class, 'indexHMPSTI'])->name('admin.voter_hmpsti');
+    Route::get('/vote/hmpssi', [VoterController::class, 'indexHMPSSI'])->name('admin.voter_hmpssi');
+    // Route::get('/vote/bem/create', [VoterController::class, 'create'])->name('admin.kandidat_create');
+    // Route::post('/vote/bem/store', [VoterController::class, 'store'])->name('admin.kandidat_store');
+    // Route::get('/vote/bem/edit/{id}', [VoterController::class, 'edit'])->name('admin.kandidat_edit');
+    // Route::put('/vote/bem/update/{id}', [VoterController::class, 'update'])->name('admin.kandidat_update');
+    // Route::get('/vote/bem/delete/{id}', [VoterController::class, 'destroy'])->name('admin.kandidat_delete');
 });
 
 // Auth Controller

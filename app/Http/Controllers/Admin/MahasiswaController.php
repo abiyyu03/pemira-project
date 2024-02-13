@@ -35,8 +35,8 @@ class MahasiswaController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'nim' => 'required',
+            'email' => 'required|unique:users',
+            'nim' => 'required|unique:users|numeric',
             'year' => 'required',
             'major' => 'required',
             'password' => 'required|confirmed|min:8',
@@ -46,15 +46,6 @@ class MahasiswaController extends Controller
             $request->except('password', '_token'),
             ['password' => bcrypt($request->password)]
         ));
-        // User::create([
-        //     'name' => $request->name,
-        //     'email' => $request->email,
-        //     'nim' => $request->nim,
-        //     'year' => $request->year,
-        //     'status' => $request->status,
-        //     'major' => $request->major,
-        //     'password' => bcrypt($request->password),
-        // ]);
 
         Alert::success('Sukses', 'Data berhasil ditambahkan !');
         return redirect()->route('admin.mahasiswa_index');

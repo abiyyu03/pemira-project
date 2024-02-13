@@ -72,11 +72,26 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li class="sidebar-item {{ request()->segment(2) == 'vote' ? 'active' : '' }} ">
-                    <a href="{{ route('admin.vote_index') }}" class='sidebar-link'>
+
+                <li class="sidebar-item {{ request()->segment(2) == 'vote' ? 'active' : '' }} has-sub ">
+                    <a href="#" class='sidebar-link'>
                         <i class="bi bi-person-check"></i>
-                        <span>Vote</span>
+                        <span>Data Voting</span>
                     </a>
+
+                    <ul class="submenu ">
+                        <li class="submenu-item">
+                            <a href="{{ route('admin.voter_bem') }}" class="submenu-link">BEM</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="{{ route('admin.voter_hmpsti') }}" class="submenu-link">HMPSTI</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a href="{{ route('admin.voter_hmpssi') }}" class="submenu-link">HMPSSI</a>
+                        </li>
+                    </ul>
+
+
                 </li>
                 <li class="sidebar-item {{ request()->segment(2) == 'mahasiswa' ? 'active' : '' }}">
                     <a href="{{ route('admin.mahasiswa_index') }}" class='sidebar-link'>

@@ -6,41 +6,43 @@
     </h1>
     <div class="grid grid-cols-2 grid-gap-2">
         @foreach ($candidates as $item)
-            <!-- cards -->
-            <div
-                class="shadow rounded-xl bg-background p-6 mx-2 text-center transition ease-in-out delay-100 hover:scale-105">
-                <a href="#" onclick="my_modal_{{ $item->id }}.showModal()">
-                    <img src="{{ asset('img/candidate/paslon2.jpg') }}" alt="" width="200" class="mx-auto" />
-                    <h1 class="my-6 text-3xl text-secondary">
-                        {{ $item->leader->name }}<br> &<br>
-                        {{ $item->vice_leader->name }}</h1>
-                </a>
-                <!-- <a href="#" class="bg-secondary text-white p-3 rounded-lg">Visi & Misi</a> -->
-            </div>
-            <dialog id="my_modal_{{ $item->id }}" class="modal">
-                <div class="modal-box">
-                    <form method="dialog">
-                        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                            ✕
-                        </button>
-                    </form>
-                    <h3 class="font-bold text-lg mb-4">
-                        Apakah Kamu sudah yakin ?
-                    </h3>
-                    <p class="py-4">{!! $item->vision_mission !!}</p>
-                    {{-- <p class="py-4">Visi</p>
+            @if ($item->category != 'Badan Eksekutif Mahasiswa')
+                <!-- cards -->
+                <div
+                    class="shadow rounded-xl bg-background p-6 mx-2 text-center transition ease-in-out delay-100 hover:scale-105">
+                    <a href="#" onclick="my_modal_{{ $item->id }}.showModal()">
+                        <img src="{{ asset('img/candidate/paslon2.jpg') }}" alt="" width="200" class="mx-auto" />
+                        <h1 class="my-6 text-3xl text-secondary">
+                            {{ $item->leader->name }}<br> &<br>
+                            {{ $item->vice_leader->name }}</h1>
+                    </a>
+                    <!-- <a href="#" class="bg-secondary text-white p-3 rounded-lg">Visi & Misi</a> -->
+                </div>
+                <dialog id="my_modal_{{ $item->id }}" class="modal">
+                    <div class="modal-box">
+                        <form method="dialog">
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                                ✕
+                            </button>
+                        </form>
+                        <h3 class="font-bold text-lg mb-4">
+                            Apakah Kamu sudah yakin ?
+                        </h3>
+                        <p class="py-4">{!! $item->vision_mission !!}</p>
+                        {{-- <p class="py-4">Visi</p>
                 <p class="pb-4">Menjadikan lorem</p>
                 <p class="py-4">Misi</p>
                 <p class="pb-4">Menjadikan lorem</p> --}}
-                    <div class="modal-action">
-                        <form action="{{ route('temp_vote') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="candidate_id" value="{{ $item->id }}">
-                            <button type="submit" class="btn bg-green-500 text-secondary">Ya, Vote !</button>
-                        </form>
+                        <div class="modal-action">
+                            <form action="{{ route('temp_vote') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="candidate_id" value="{{ $item->id }}">
+                                <button type="submit" class="btn bg-green-500 text-secondary">Ya, Vote !</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </dialog>
+                </dialog>
+            @endif
         @endforeach
     </div>
     <div class="mx-auto text-center">
