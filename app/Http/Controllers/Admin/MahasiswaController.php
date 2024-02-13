@@ -122,4 +122,22 @@ class MahasiswaController extends Controller
             return view('admin.mahasiswa.index');
         }
     }
+
+    public function approve($id)
+    {
+        try {
+            // Alert::success('Berhasil', 'Berhasil mengubah status');
+
+            // Approve the user
+            $user = User::find($id);
+            $user->status = 1;
+            $user->save();
+
+            return view('admin.mahasiswa.index');
+        } catch (\Throwable $th) {
+            // Alert::error('Gagal', 'Gagal mengubah status');
+
+            return view('admin.mahasiswa.index');
+        }
+    }
 }
