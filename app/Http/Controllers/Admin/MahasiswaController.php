@@ -5,99 +5,139 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Intervention\Image\Drivers\Gd\Driver;
-use Intervention\Image\ImageManager;
-use Alert;
+use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'role:Admin']);
+    }
+
     public function index()
     {
-        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
-        return view('admin.pages.mahasiswa.index', compact('mahasiswa'));
+        return view('admin.mahasiswa.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('admin.pages.mahasiswa.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
+        // Validate the request...
+
         $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:users',
-            'nim' => 'required|unique:users|numeric',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'nim' => 'required|unique:users',
             'year' => 'required',
             'major' => 'required',
-            'password' => 'required|confirmed|min:8',
         ]);
 
-        User::create(array_merge(
-            $request->except('password', '_token'),
-            ['password' => bcrypt($request->password)]
-        ));
+        try {
+            // Alert::success('Berhasil', 'Berhasil menambahkan data');
 
-        Alert::success('Sukses', 'Data berhasil ditambahkan !');
-        return redirect()->route('admin.mahasiswa_index');
+            // Store the user
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'nim' => $request->nim,
+                'year' => $request->year,
+                'major' => $request->major,
+                'is_employee' => $request->is_employee,
+                'status' => $request->status,
+            ]);
+
+            return view('admin.mahasiswa.create');
+        } catch (\Throwable $th) {
+            // Alert::error('Gagal', 'Gagal menambahkan data');
+            return view('admin.mahasiswa.create');
+        }
+    }
+    public function create()
+    {
+        return view('admin.mahasiswa.create');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.mahasiswa.show', compact('user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit($id)
     {
-        $mahasiswa = User::find($id);
-        return view('admin.pages.mahasiswa.edit', compact('mahasiswa'));
+        $user = User::find($id);
+        return view('admin.mahasiswa.edit', compact('user'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        $newMahasiswa = $request->validate([
+        // Validate the request...
+
+        $request->validate([
             'name' => 'required',
-            'email' => 'required',
-            'nim' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required',
+            'nim' => 'required|unique:users',
             'year' => 'required',
-            'status' => 'required',
             'major' => 'required',
         ]);
 
-        $mahasiswa = User::find($id);
-        $mahasiswa->update($newMahasiswa);
+        try {
+            // Alert::success('Berhasil', ' Berhasil mengubah data');
 
-        Alert::success('Sukses', 'Data berhasil diubah !');
-        return redirect()->route('admin.mahasiswa_index');
+            // Update the user
+
+            $user = User::find($id);
+
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->nim = $request->nim;
+            $user->year = $request->year;
+            $user->major = $request->major;
+            $user->is_employee = $request->is_employee;
+            $user->status = $request->status;
+
+            $user->save();
+        } catch (\Throwable $th) {
+            // Alert::error('Gagal', 'Gagal mengubah data');
+
+            return view('admin.mahasiswa.edit', compact('user'));
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        $mahasiswa = User::find($id);
-        $mahasiswa->delete();
+        try {
+            // Alert::success('Berhasil', 'Berhasil menghapus data');
 
-        Alert::success('Sukses', 'Data berhasil dihapus !');
-        return redirect()->route('admin.mahasiswa_index');
+            // Delete the user
+            User::destroy($id);
+
+            return view('admin.mahasiswa.index');
+        } catch (\Throwable $th) {
+            // Alert::error('Gagal', 'Gagal menghapus data');
+
+            return view('admin.mahasiswa.index');
+        }
+    }
+
+    public function approve($id)
+    {
+        try {
+            // Alert::success('Berhasil', 'Berhasil mengubah status');
+
+            // Approve the user
+            $user = User::find($id);
+            $user->status = 1;
+            $user->save();
+
+            return view('admin.mahasiswa.index');
+        } catch (\Throwable $th) {
+            // Alert::error('Gagal', 'Gagal mengubah status');
+
+            return view('admin.mahasiswa.index');
+        }
     }
 }

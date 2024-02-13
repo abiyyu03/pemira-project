@@ -4,122 +4,122 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Candidate;
-use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
-use Intervention\Image\Drivers\Gd\Driver;
-use Intervention\Image\ImageManager;
-use Alert;
 
 class CandidateController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        $candidates = Candidate::get();
-        return view('admin.pages.candidate.index', compact('candidates'));
+        $candidates = Candidate::all();
+        return view('admin.candidate.index', compact('candidates'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
-        return view('admin.pages.candidate.create', compact('mahasiswa'));
+        return view('admin.candidate.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $candidate = $request->validate([
-            'candidate_number' => 'required',
-            'leader_id' => 'required|unique:App\Models\Candidate,leader_id',
-            'vice_leader_id' => 'required|unique:App\Models\Candidate,vice_leader_id',
-            'vision_mission' => 'required ',
-            'category' => 'required',
-            'photo' => 'required',
-        ]);
-
-        $imageFile = $request->file('photo');
-        $fileName = $imageFile->getClientOriginalName();
-
-        $manager = new ImageManager(Driver::class);
-        $image = $manager->read($imageFile);
-        $image->save('img/candidate/' . $fileName);
-
-        Candidate::create(
-            array_merge($candidate, [
-                'photo' => $fileName,
-            ])
-        );
-
-        Alert::success('Sukses', 'Data berhasil ditambahkan !');
-        return redirect()->route('admin.kandidat_index');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        $candidate = Candidate::find($id);
-        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
-        return view('admin.pages.candidate.edit', compact('candidate', 'mahasiswa'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        $newCandidate = $request->validate([
-            'candidate_number' => 'required',
+        $request->validate([
             'leader_id' => 'required',
             'vice_leader_id' => 'required',
             'vision_mission' => 'required',
             'category' => 'required',
-            'photo' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageFile = $request->file('photo');
-        $fileName = $imageFile->getClientOriginalName();
+        try {
+            $photo = $request->file('photo');
+            $photo_name = time() . '.' . $photo->extension();
+            $photo->move(public_path('images'), $photo_name);
 
-        $manager = new ImageManager(Driver::class);
-        $image = $manager->read($imageFile);
-        $image->save('img/candidate/' . $fileName);
+            Candidate::create([
+                'leader_id' => $request->leader_id,
+                'vice_leader_id' => $request->vice_leader_id,
+                'vision_mission' => $request->vision_mission,
+                'category' => $request->category,
+                'photo' => $photo_name,
+            ]);
 
-        $candidate = Candidate::find($id);
-        $candidate->update(
-            array_merge($newCandidate, [
-                'photo' => $fileName,
-            ])
-        );
-
-        Alert::success('Sukses', 'Data berhasil diubah !');
-        return redirect()->route('admin.kandidat_index');
+            // Alert::success('Berhasil', 'Berhasil menambahkan data');
+            return view('admin.candidate.create');
+        } catch (\Throwable $th) {
+            // Alert::error('Gagal', 'Gagal menambahkan data');
+            return view('admin.candidate.create');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function show($id)
     {
         $candidate = Candidate::find($id);
-        $candidate->delete();
 
-        Alert::success('Sukses', 'Data berhasil dihapus !');
-        return redirect()->route('admin.kandidat_index');
+        return view('admin.candidate.show', compact('candidate'));
+    }
+
+    public function edit($id)
+    {
+        $candidate = Candidate::find($id);
+
+        return view('admin.candidate.edit', compact('candidate'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'leader_id' => 'required',
+            'vice_leader_id' => 'required',
+            'vision_mission' => 'required',
+            'category' => 'required',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        try {
+            // Save data
+            $candidate = Candidate::find($id);
+
+            $candidate->leader_id = $request->leader_id;
+            $candidate->vice_leader_id = $request->vice_leader_id;
+            $candidate->vision_mission = $request->vision_mission;
+            $candidate->category = $request->category;
+
+            if ($request->hasFile('photo')) {
+                $old_photo = public_path('images/candidate/' . $candidate->photo);
+
+                // Remove old photo
+                if (file_exists($old_photo)) {
+                    unlink($old_photo);
+                }
+
+                // Save photo
+                $photo = $request->file('photo');
+                $photo_name = time() . '.' . $photo->extension();
+                $photo->move(public_path('images/candidate'), $photo_name);
+
+                $candidate->photo = $photo_name;
+            }
+
+            $candidate->save();
+
+            // Alert::success('Berhasil', 'Berhasil mengubah data');
+            return view('admin.candidate.edit', compact('candidate'));
+        } catch (\Throwable $th) {
+            // Alert::error('Gagal', 'Gagal mengubah data');
+            return view('admin.candidate.edit', compact('candidate'));
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Candidate::find($id)->delete();
+
+            // Alert::success('Berhasil', 'Berhasil menghapus data');
+            return back();
+        } catch (\Throwable $th) {
+            //throw $th;
+            // Alert::error('Gagal', 'Gagal menghapus data');
+            return back();
+        }
     }
 }
