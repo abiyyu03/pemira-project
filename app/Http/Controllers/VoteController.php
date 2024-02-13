@@ -10,7 +10,12 @@ use Alert;
 
 class VoteController extends Controller
 {
-    public function isUserAlreadyVote()
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
     {
         if (Vote::hasVoted(Auth::user()->id)) {
             Alert::error('Gagal', 'Anda sudah melakukan voting');
