@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <title>Ready to Vote ? - Pemira 2024 STTNF</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @vite('resources/css/app.css')
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
 </head>
 
