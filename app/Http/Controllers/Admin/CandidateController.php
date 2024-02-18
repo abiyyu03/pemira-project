@@ -10,10 +10,10 @@ use Alert;
 
 class CandidateController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth', 'role:Admin']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['auth', 'role:Admin']);
+    }
 
     public function index()
     {
@@ -58,8 +58,9 @@ class CandidateController extends Controller
             Alert::success('Berhasil', 'Berhasil menambahkan data');
             return redirect()->to('/admin/kandidat');
         } catch (\Throwable $th) {
+            dd($th);
             // Alert::error('Gagal', 'Gagal menambahkan data');
-            return redirect()->back();
+            // return redirect()->back();
         }
     }
 
