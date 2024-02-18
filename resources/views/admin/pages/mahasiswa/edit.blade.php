@@ -102,7 +102,7 @@
                                                 <div class="form-group">
                                                     <label for="password">Password</label>
                                                     <input type="password" id="password" class="form-control"
-                                                        name="password" value="{{ old('password') }}" required>
+                                                        name="password" value="{{ old('password') }}">
                                                     @error('password')
                                                         <div class="text-danger font-bold">{{ $message }}</div>
                                                     @enderror
@@ -113,7 +113,7 @@
                                                     <label for="password_confirmation">Confirm Password</label>
                                                     <input type="password" id="password_confirmation" class="form-control"
                                                         name="password_confirmation"
-                                                        value="{{ old('password_confirmation') }}" required>
+                                                        value="{{ old('password_confirmation') }}">
                                                     @error('password_confirmation')
                                                         <div class="text-danger font-bold">{{ $message }}</div>
                                                     @enderror

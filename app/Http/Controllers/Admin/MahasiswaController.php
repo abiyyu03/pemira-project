@@ -85,7 +85,6 @@ class MahasiswaController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required',
             'nim' => 'required|unique:users',
             'year' => 'required',
             'major' => 'required',
@@ -100,7 +99,9 @@ class MahasiswaController extends Controller
 
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password = Hash::make($request->password);
+            if ($request->password) {
+                $user->password = Hash::make($request->password);
+            }
             $user->nim = $request->nim;
             $user->year = $request->year;
             $user->major = $request->major;
