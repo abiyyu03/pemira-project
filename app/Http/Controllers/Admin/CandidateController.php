@@ -30,7 +30,6 @@ class CandidateController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'candidate_number' => 'required',
             'nickname' => 'required',
