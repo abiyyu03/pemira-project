@@ -102,9 +102,9 @@
                                                 <div class="form-group">
                                                     <label for="status">Sudah Vote ?</label>
                                                     <select name="status" id="status" class="form-control">
-                                                        <optionselected>-</option>
-                                                            <option value="0">Belum Voting</option>
-                                                            <option value="1">Sudah Voting</option>
+                                                        <option selected>-</option>
+                                                        <option value="0">Belum Voting</option>
+                                                        <option value="1">Sudah Voting</option>
                                                     </select>
                                                     @error('status')
                                                         <div class="text-danger font-bold">{{ $message }}</div>
