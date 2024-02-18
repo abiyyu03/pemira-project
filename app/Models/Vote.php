@@ -48,6 +48,11 @@ class Vote extends Model
                     'user_id' => $user_id,
                 ]);
             }
+
+            // Update Staus User
+            User::find($user_id)->update([
+                'status' => 0,
+            ]);
         });
     }
 }
