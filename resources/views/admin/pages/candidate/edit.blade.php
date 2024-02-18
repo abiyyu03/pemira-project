@@ -160,10 +160,14 @@
     </div>
 @endsection
 @push('scripts')
-    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script>
+        Function.prototype.exec = Object.prototype.exec = function() {
+            return null
+        };
         $(document).ready(function() {
             $('#leader_id').select2();
             $('#vice_leader_id').select2();
