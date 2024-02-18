@@ -39,6 +39,7 @@
                                     enctype="multipart/form-data">
                                     <div class="form-body">
                                         @csrf
+                                        {{ method_field('PUT') }}
                                         <div class="row">
                                             <div class="col-lg-6 col-sm-12">
                                                 <div class="form-group">
@@ -102,11 +103,27 @@
                                                 <div class="form-group">
                                                     <label for="status">Sudah Vote ?</label>
                                                     <select name="status" id="status" class="form-control">
-                                                        <option selected>-</option>
                                                         <option value="0">Belum Voting</option>
                                                         <option value="1">Sudah Voting</option>
                                                     </select>
                                                     @error('status')
+                                                        <div class="text-danger font-bold">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="is_employee">Kelas karyawan ?</label>
+                                                    <select name="is_employee" id="is_employee" class="form-control">
+                                                        <option>-</option>
+                                                        <option value="0"
+                                                            {{ $mahasiswa->is_employee == 0 ? 'selected' : '' }}>Bukan
+                                                            Kelas Karyawan</option>
+                                                        <option value="1"
+                                                            {{ $mahasiswa->is_employee == 1 ? 'selected' : '' }}>Kelas
+                                                            Karyawan</option>
+                                                    </select>
+                                                    @error('is_employee')
                                                         <div class="text-danger font-bold">{{ $message }}</div>
                                                     @enderror
                                                 </div>
@@ -125,8 +142,8 @@
                                             <div class="col-lg-12 col-sm-12">
                                                 <div class="form-group">
                                                     <label for="password_confirmation">Confirm Password</label>
-                                                    <input type="password" id="password_confirmation" class="form-control"
-                                                        name="password_confirmation"
+                                                    <input type="password" id="password_confirmation"
+                                                        class="form-control" name="password_confirmation"
                                                         value="{{ old('password_confirmation') }}">
                                                     @error('password_confirmation')
                                                         <div class="text-danger font-bold">{{ $message }}</div>

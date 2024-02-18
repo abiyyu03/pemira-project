@@ -84,11 +84,10 @@ class MahasiswaController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'nim' => 'required|unique:users',
+            'email' => 'required|email',
+            'nim' => 'required',
             'year' => 'required',
             'major' => 'required',
-            'is_employee' => 'required',
         ]);
 
         try {
