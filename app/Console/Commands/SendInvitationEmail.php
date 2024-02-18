@@ -31,14 +31,16 @@ class SendInvitationEmail extends Command
         $emails = [];
 
         // Append 3 mail to 100 emails
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < 33; $i++) {
             array_push($emails, 'anotheriyyu29@gmail.com', 'prncyash127@gmail.com', 'asnurgames12@gmail.com');
         }
 
         // Send email
         foreach ($emails as $email) {
-            SendInvitationMail::dispatch($email)->onQueue('emails-invitation');
+            SendInvitationMail::dispatch($email);
         }
+
+        // Mail::to('asnurgames12@gmail.com')->send(new SendInvitation());
 
         $this->info('Invitation email sent successfully!');
     }
