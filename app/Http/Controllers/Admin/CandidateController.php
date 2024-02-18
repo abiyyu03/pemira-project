@@ -58,7 +58,6 @@ class CandidateController extends Controller
             Alert::success('Berhasil', 'Berhasil menambahkan data');
             return redirect()->to('/admin/kandidat');
         } catch (\Throwable $th) {
-            dd($th);
             // Alert::error('Gagal', 'Gagal menambahkan data');
             return redirect()->back();
         }
