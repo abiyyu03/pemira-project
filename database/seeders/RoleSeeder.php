@@ -15,11 +15,11 @@ class RoleSeeder extends Seeder
     {
         $role = [
             [
-                "name" => "admin",
+                "name" => "Admin",
                 "guard_name" => "web"
             ],
             [
-                "name" => "user",
+                "name" => "User",
                 "guard_name" => "web"
             ],
         ];
