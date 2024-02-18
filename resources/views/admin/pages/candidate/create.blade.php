@@ -90,6 +90,16 @@
                                             </div>
                                             <div class="col-12">
                                                 <div class="form-group">
+                                                    <label for="nickname">Nickname Paslon</label>
+                                                    <input type="text" id="nickname" class="form-control"
+                                                        name="nickname" required value="{{ old('nickname') }}" />
+                                                    @error('nickname')
+                                                        <div class="text-danger font-bold">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
                                                     <label for="vision_mission">Visi Misi</label>
                                                     <textarea id="vision_mission" class="form-control" name="vision_mission" required>{{ old('vision_mission') }}</textarea>
                                                     @error('vision_mission')
