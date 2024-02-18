@@ -4,19 +4,27 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Candidate;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CandidateController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'role:Admin']);
+    // }
+
     public function index()
     {
         $candidates = Candidate::all();
-        return view('admin.candidate.index', compact('candidates'));
+        return view('admin.pages.candidate.index', compact('candidates'));
     }
 
     public function create()
     {
-        return view('admin.candidate.create');
+        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
+
+        return view('admin.pages.candidate.create', compact('mahasiswa'));
     }
 
     public function store(Request $request)
@@ -43,10 +51,10 @@ class CandidateController extends Controller
             ]);
 
             // Alert::success('Berhasil', 'Berhasil menambahkan data');
-            return view('admin.candidate.create');
+            return view('admin.pages.candidate.create');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal menambahkan data');
-            return view('admin.candidate.create');
+            return view('admin.pages.candidate.create');
         }
     }
 
@@ -54,14 +62,15 @@ class CandidateController extends Controller
     {
         $candidate = Candidate::find($id);
 
-        return view('admin.candidate.show', compact('candidate'));
+        return view('admin.pages.candidate.show', compact('candidate'));
     }
 
     public function edit($id)
     {
         $candidate = Candidate::find($id);
+        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
 
-        return view('admin.candidate.edit', compact('candidate'));
+        return view('admin.pages.candidate.edit', compact('candidate', 'mahasiswa'));
     }
 
     public function update(Request $request, $id)

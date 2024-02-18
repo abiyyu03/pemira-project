@@ -105,6 +105,12 @@
                         <span>Kandidat</span>
                     </a>
                 </li>
+                <li class="sidebar-item {{ request()->segment(2) == 'login-manager' ? 'active' : '' }}">
+                    <a href="{{ route('admin.login_manager') }}" class='sidebar-link'>
+                        <i class="bi bi-shield-fill-check"></i>
+                        <span>Login Manager</span>
+                    </a>
+                </li>
 
                 {{-- <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

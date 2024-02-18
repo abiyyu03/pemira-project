@@ -8,7 +8,7 @@
     </header>
 
     <div class="page-heading">
-        <h3>Profile Statistics</h3>
+        <h3>Statistics</h3>
     </div>
     <div class="page-content">
         <section class="row">
@@ -24,8 +24,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Profile Views</h6>
-                                        <h6 class="font-extrabold mb-0">112.000</h6>
+                                        <h6 class="text-muted font-semibold">Total Mahasiswa</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $totalMahasiswa }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -41,8 +41,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Followers</h6>
-                                        <h6 class="font-extrabold mb-0">183.000</h6>
+                                        <h6 class="text-muted font-semibold">Kandidat</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $totalKandidat }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -58,8 +58,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Following</h6>
-                                        <h6 class="font-extrabold mb-0">80.000</h6>
+                                        <h6 class="text-muted font-semibold">Suara Masuk</h6>
+                                        <h6 class="font-extrabold mb-0">{{ '80.000' }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
-                                        <h6 class="text-muted font-semibold">Saved Post</h6>
+                                        <h6 class="text-muted font-semibold">Sisa Suara</h6>
                                         <h6 class="font-extrabold mb-0">112</h6>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="col-12 col-lg-3">
-                <div class="card">
+                {{-- <div class="card">
                     <div class="card-body py-4 px-4">
                         <div class="d-flex align-items-center">
                             <div class="avatar avatar-xl">
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="card">
                     <div class="card-header">
                         <h4>Visitors Profile</h4>

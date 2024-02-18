@@ -9,14 +9,21 @@ use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:Admin']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'role:Admin']);
+    // }
 
     public function index()
     {
-        return view('admin.mahasiswa.index');
+        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
+        return view('admin.pages.mahasiswa.index', compact('mahasiswa'));
+    }
+
+    public function indexLoginManager()
+    {
+        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
+        return view('admin.pages.login_manager.index', compact('mahasiswa'));
     }
 
     public function store(Request $request)
@@ -47,27 +54,27 @@ class MahasiswaController extends Controller
                 'status' => $request->status,
             ]);
 
-            return view('admin.mahasiswa.create');
+            return view('admin.pages.mahasiswa.create');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal menambahkan data');
-            return view('admin.mahasiswa.create');
+            return view('admin.pages.mahasiswa.create');
         }
     }
     public function create()
     {
-        return view('admin.mahasiswa.create');
+        return view('admin.pages.mahasiswa.create');
     }
 
     public function show($id)
     {
-        $user = User::find($id);
-        return view('admin.mahasiswa.show', compact('user'));
+        $mahasiswa = User::find($id);
+        return view('admin.pages.mahasiswa.show', compact('mahasiswa'));
     }
 
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('admin.mahasiswa.edit', compact('user'));
+        $mahasiswa = User::find($id);
+        return view('admin.pages.mahasiswa.edit', compact('mahasiswa'));
     }
 
     public function update(Request $request, $id)

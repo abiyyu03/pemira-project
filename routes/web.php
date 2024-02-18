@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CandidateController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MahasiswaController;
 use App\Http\Controllers\Admin\VoterController;
 use App\Http\Controllers\AuthController;
@@ -32,9 +33,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.pages.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('admin.mahasiswa_index');
     Route::get('/mahasiswa/create', [MahasiswaController::class, 'create'])->name('admin.mahasiswa_create');
@@ -53,6 +52,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/vote/bem', [VoterController::class, 'indexBEM'])->name('admin.voter_bem');
     Route::get('/vote/hmpsti', [VoterController::class, 'indexHMPSTI'])->name('admin.voter_hmpsti');
     Route::get('/vote/hmpssi', [VoterController::class, 'indexHMPSSI'])->name('admin.voter_hmpssi');
+
+    Route::get('/login-manager', [MahasiswaController::class, 'indexLoginManager'])->name('admin.login_manager');
     // Route::get('/vote/bem/create', [VoterController::class, 'create'])->name('admin.kandidat_create');
     // Route::post('/vote/bem/store', [VoterController::class, 'store'])->name('admin.kandidat_store');
     // Route::get('/vote/bem/edit/{id}', [VoterController::class, 'edit'])->name('admin.kandidat_edit');

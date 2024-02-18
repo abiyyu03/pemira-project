@@ -16,6 +16,14 @@ class VoteController extends Controller
         $this->middleware('auth');
     }
 
+    public function isUserAlreadyVote()
+    {
+        if (Vote::hasVoted(Auth::user()->id)) {
+            Alert::error('Gagal', 'Anda sudah melakukan voting');
+            return true;
+        }
+    }
+
     public function index()
     {
         if (Vote::hasVoted(Auth::user()->id)) {
