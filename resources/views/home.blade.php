@@ -638,13 +638,10 @@
         });
 
         // Connect Socket
-        const socket = io("wss://pemira.nurulfikri.ac.id", {
-            secure: true,
-            withCredentials: true,
-        });
+        const socket = io();
 
-        socket.on("connect", (result) => {
-            console.log(result)
+        socket.on("connect", () => {
+            console.log("connected")
         })
 
         document.addEventListener('DOMContentLoaded', function() {
