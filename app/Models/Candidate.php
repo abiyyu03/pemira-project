@@ -21,6 +21,7 @@ class Candidate extends Model
         'vision_mission',
         'category',
         'photo',
+        'nickname'
     ];
 
     // Relationship

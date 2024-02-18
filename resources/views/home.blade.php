@@ -273,38 +273,45 @@
        </button>
       </div> -->
                     <!-- bem -->
-                    <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-7">
-                        <h1 class="my-1 text-2xl text-background font-bold bg-secondary w-fit mx-auto p-2 rounded-xl">
-                            BEM
-                        </h1>
-                        <div class="flex mb-2 justify-center">
-                            <div class="rounded-xl p-6 text-center transition ease-in-out delay-100 hover:scale-105">
-                                <img src="img/candidate/paslon1.jpg" alt="" class="w-full sm:w-72"
-                                    class="mx-auto" />
-                                <h1 class="mt-6 mb-1 text-3xl text-secondary">Fateh & Ubay</h1>
-                                <dialog id="my_modal_3" class="modal">
-                                    <div class="modal-box">
-                                        <form method="dialog">
-                                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                                                ✕
-                                            </button>
-                                        </form>
-                                        <h3 class="font-bold text-lg mb-4">Cek Visi & Misi beliau</h3>
-                                        <p class="py-4">Visi</p>
-                                        <p class="pb-4">Menjadikan lorem</p>
-                                        <p class="py-4">Misi</p>
-                                        <p class="pb-4">Menjadikan lorem</p>
-                                    </div>
-                                </dialog>
+                    @foreach ($kandidat as $item)
+                        <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-7">
+                            <h1
+                                class="my-1 text-2xl text-background font-bold bg-secondary w-fit mx-auto p-2 rounded-xl">
+                                @if ($item->category == 'Badan Eksekutif Mahasiswa')
+                                    {{ 'BEM' }}
+                                @elseif ($item->category == 'Himpunan Mahasiswa Teknik Informatika')
+                                    {{ 'HMPSTI' }}
+                                @elseif ($item->category == 'Himpunan Mahasiswa Sistem Informasi')
+                                    {{ 'HMPSSI' }}
+                                @endif
+                            </h1>
+                            <div class="flex mb-2 justify-center">
+                                <div
+                                    class="rounded-xl p-6 text-center transition ease-in-out delay-100 hover:scale-105">
+                                    <img src="img/candidate/paslon1.jpg" alt="" class="w-full sm:w-72"
+                                        class="mx-auto" />
+                                    <h1 class="mt-6 mb-1 text-3xl text-secondary">{{ $item->nickname }}</h1>
+                                    <dialog id="my_modal_{{ $item->id }}" class="modal">
+                                        <div class="modal-box">
+                                            <form method="dialog">
+                                                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                                                    ✕
+                                                </button>
+                                            </form>
+                                            <h3 class="font-bold text-lg mb-4">Cek Visi & Misi beliau</h3>
+                                            <p class="py-3">{!! $item->vision_mission !!}</p>
+                                        </div>
+                                    </dialog>
+                                </div>
                             </div>
+                            <button type="button" class="bg-blue-500 text-white p-3 rounded-lg"
+                                onclick="my_modal_{{ $item->id }}.showModal()">
+                                Visi dan Misi
+                            </button>
                         </div>
-                        <button type="button" class="bg-main text-white p-3 rounded"
-                            onclick="my_modal_3.showModal()">
-                            Visi dan Misi
-                        </button>
-                    </div>
+                    @endforeach
                     <!-- hmpssi -->
-                    <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-7">
+                    {{-- <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-7">
                         <h1 class="my-1 text-2xl text-background font-bold bg-secondary w-fit mx-auto p-2 rounded-xl">
                             HMPSSI
                         </h1>
@@ -333,9 +340,9 @@
                             onclick="my_modal_3.showModal()">
                             Visi dan Misi
                         </button>
-                    </div>
+                    </div> --}}
                     <!-- hmpsti -->
-                    <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-7">
+                    {{-- <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-7">
                         <h1 class="my-1 text-2xl text-background font-bold bg-secondary w-fit mx-auto p-2 rounded-xl">
                             HMPSTI
                         </h1>
@@ -364,7 +371,7 @@
                             onclick="my_modal_3.showModal()">
                             Visi dan Misi
                         </button>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </section>
@@ -472,7 +479,7 @@
                     </h2>
                 </div>
                 <div class="mt-10">
-                    <a href="#"
+                    <a href="/ready"
                         class="text-xl bg-secondary text-white hover:bg-indigo-800 transition delay-100 p-4 rounded-lg">Vote
                         Sekarang</a>
                 </div>
