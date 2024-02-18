@@ -188,6 +188,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
     ])->toArray(),
 
 ];

@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Alert;
 
 class MahasiswaController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['auth', 'role:Admin']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['auth', 'role:Admin']);
+    }
 
     public function index()
     {
@@ -33,7 +34,7 @@ class MahasiswaController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
-            'password' => 'required',
+            'password' => 'required|confirmed',
             'nim' => 'required|unique:users',
             'year' => 'required',
             'major' => 'required',
@@ -51,13 +52,13 @@ class MahasiswaController extends Controller
                 'year' => $request->year,
                 'major' => $request->major,
                 'is_employee' => $request->is_employee,
-                'status' => $request->status,
             ]);
 
-            return view('admin.pages.mahasiswa.create');
+            Alert::success('sukses', 'Data berhasil ditambahkan');
+            return redirect()->to('/admin/mahasiswa');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal menambahkan data');
-            return view('admin.pages.mahasiswa.create');
+            return redirect()->back();
         }
     }
     public function create()
@@ -107,10 +108,10 @@ class MahasiswaController extends Controller
             $user->status = $request->status;
 
             $user->save();
+            Alert::success('sukses', 'Data berhasil diubah');
+            return redirect()->to('/admin/mahasiswa');
         } catch (\Throwable $th) {
-            // Alert::error('Gagal', 'Gagal mengubah data');
-
-            return view('admin.mahasiswa.edit', compact('user'));
+            return redirect()->back();
         }
     }
 
@@ -122,11 +123,12 @@ class MahasiswaController extends Controller
             // Delete the user
             User::destroy($id);
 
-            return view('admin.mahasiswa.index');
+            Alert::success('sukses', 'Data berhasil dihapus');
+            return redirect()->to('/admin/mahasiswa');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal menghapus data');
 
-            return view('admin.mahasiswa.index');
+            return redirect()->back();
         }
     }
 
@@ -140,11 +142,11 @@ class MahasiswaController extends Controller
             $user->status = 1;
             $user->save();
 
-            return view('admin.mahasiswa.index');
+            return redirect()->to('/admin/login_manager');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal mengubah status');
 
-            return view('admin.mahasiswa.index');
+            return redirect()->back();
         }
     }
 }
