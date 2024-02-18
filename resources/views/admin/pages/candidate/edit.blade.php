@@ -98,7 +98,7 @@
                                                 <div class="form-group">
                                                     <label for="nickname">Nickname Paslon</label>
                                                     <input type="text" id="nickname" class="form-control"
-                                                        name="nickname" required value="{{ old('nickname') }}" />
+                                                        name="nickname" required value="{{ $candidate->nickname }}" />
                                                     @error('nickname')
                                                         <div class="text-danger font-bold">{{ $message }}</div>
                                                     @enderror
