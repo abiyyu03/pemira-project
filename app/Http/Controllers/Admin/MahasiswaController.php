@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:Admin']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'role:Admin']);
+    // }
 
     public function index()
     {

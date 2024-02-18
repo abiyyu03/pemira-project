@@ -23,6 +23,6 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('kprsttnf!@#'),
         ]);
 
-        $user->assignRole('Admin');
+        $user->assignRole('admin');
     }
 }
