@@ -31,12 +31,13 @@ class CandidateController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'candidate_number' => 'required',
             'nickname' => 'required',
             'leader_id' => 'required',
             'vice_leader_id' => 'required',
             'vision_mission' => 'required',
             'category' => 'required',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         try {
@@ -45,6 +46,7 @@ class CandidateController extends Controller
             $photo->move(public_path('images'), $photo_name);
 
             Candidate::create([
+                'candidate_number' => $request->candidate_number,
                 'nickname' => $request->nickname,
                 'leader_id' => $request->leader_id,
                 'vice_leader_id' => $request->vice_leader_id,
@@ -79,6 +81,7 @@ class CandidateController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'candidate_number' => 'required',
             'nickname' => 'required',
             'leader_id' => 'required',
             'vice_leader_id' => 'required',
@@ -91,6 +94,7 @@ class CandidateController extends Controller
             // Save data
             $candidate = Candidate::find($id);
 
+            $candidate->candidate_number = $request->candidate_number;
             $candidate->nickname = $request->nickname;
             $candidate->leader_id = $request->leader_id;
             $candidate->vice_leader_id = $request->vice_leader_id;
