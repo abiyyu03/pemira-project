@@ -88,6 +88,7 @@ class MahasiswaController extends Controller
             'nim' => 'required|unique:users',
             'year' => 'required',
             'major' => 'required',
+            'is_employee' => 'required',
         ]);
 
         try {

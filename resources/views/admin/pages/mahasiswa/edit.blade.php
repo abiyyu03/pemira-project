@@ -34,8 +34,9 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form form-vertical" action="{{ route('admin.mahasiswa_store') }}"
-                                    method="POST" enctype="multipart/form-data">
+                                <form class="form form-vertical"
+                                    action="{{ route('admin.mahasiswa_update', $mahasiswa->id) }}" method="POST"
+                                    enctype="multipart/form-data">
                                     <div class="form-body">
                                         @csrf
                                         <div class="row">
@@ -93,6 +94,19 @@
                                                         @endfor
                                                     </select>
                                                     @error('major')
+                                                        <div class="text-danger font-bold">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="status">Sudah Vote ?</label>
+                                                    <select name="status" id="status" class="form-control">
+                                                        <optionselected>-</option>
+                                                            <option value="0">Belum Voting</option>
+                                                            <option value="1">Sudah Voting</option>
+                                                    </select>
+                                                    @error('status')
                                                         <div class="text-danger font-bold">{{ $message }}</div>
                                                     @enderror
                                                 </div>
