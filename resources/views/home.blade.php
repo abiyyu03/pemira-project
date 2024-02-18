@@ -571,12 +571,13 @@
         integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
     <script>
         const presma = document.getElementById('presma');
         const himti = document.getElementById('himti');
         const himsi = document.getElementById('himsi');
         // presma
-        new Chart(presma, {
+        const chart_presma = new Chart(presma, {
             type: 'doughnut',
             data: {
                 labels: ['Red', 'Blue'],
@@ -596,7 +597,7 @@
             },
         });
         // himsi
-        new Chart(himsi, {
+        const chart_himsi = new Chart(himsi, {
             type: 'doughnut',
             data: {
                 labels: ['Red', 'Blue'],
@@ -616,7 +617,7 @@
             },
         });
         // himti
-        new Chart(himti, {
+        const chart_himti = new Chart(himti, {
             type: 'doughnut',
             data: {
                 labels: ['Red', 'Blue'],
@@ -635,6 +636,14 @@
                 },
             },
         });
+
+        // Connect Socket
+        const socket = io("wss://pemira.nurulfikri.ac.id");
+
+        socket.on("connect", (result) => {
+            console.log(result)
+        })
+
         document.addEventListener('DOMContentLoaded', function() {
             // Simulate content loading delay (replace this with your actual content loading logic)
             setTimeout(function() {
