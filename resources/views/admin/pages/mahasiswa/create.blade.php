@@ -116,11 +116,24 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="col-lg-12 col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="is_employee">Kelas karyawan ?</label>
+                                                    <select name="is_employee" id="is_employee" class="form-control">
+                                                        <option value="0">Bukan Kelas Karyawan</option>
+                                                        <option value="1">Kelas Karyawan</option>
+                                                    </select>
+                                                    @error('is_employee')
+                                                        <div class="text-danger font-bold">{{ $message }}</div>
+                                                    @enderror
+                                                </div>
+                                            </div>
                                             <div class="col-12 mt-2 justify-content-end d-flex">
                                                 <a href="{{ route('admin.mahasiswa_index') }}"
                                                     class="btn btn-secondary mx-2"><i class="bi bi-arrow-left"></i>
                                                     Kembali</a>
-                                                <button type="submit" class="btn btn-primary"><i class="bi bi-sd-card"></i>
+                                                <button type="submit" class="btn btn-primary"><i
+                                                        class="bi bi-sd-card"></i>
                                                     Simpan Data</button>
                                             </div>
                                         </div>
