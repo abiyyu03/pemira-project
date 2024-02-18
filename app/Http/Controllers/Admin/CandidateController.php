@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Candidate;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Alert;
 
 class CandidateController extends Controller
 {
@@ -50,11 +51,11 @@ class CandidateController extends Controller
                 'photo' => $photo_name,
             ]);
 
-            // Alert::success('Berhasil', 'Berhasil menambahkan data');
-            return view('admin.pages.candidate.create');
+            Alert::success('Berhasil', 'Berhasil menambahkan data');
+            return redirect()->to('/admin/kandidat');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal menambahkan data');
-            return view('admin.pages.candidate.create');
+            return redirect()->back();
         }
     }
 
@@ -110,11 +111,11 @@ class CandidateController extends Controller
 
             $candidate->save();
 
-            // Alert::success('Berhasil', 'Berhasil mengubah data');
-            return view('admin.candidate.edit', compact('candidate'));
+            Alert::success('Berhasil', 'Berhasil mengubah data');
+            return redirect()->to('/admin/kandidat');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal mengubah data');
-            return view('admin.candidate.edit', compact('candidate'));
+            return redirect()->back();
         }
     }
 
