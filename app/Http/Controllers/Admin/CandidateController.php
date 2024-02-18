@@ -43,7 +43,7 @@ class CandidateController extends Controller
         try {
             $photo = $request->file('photo');
             $photo_name = time() . '.' . $photo->extension();
-            $photo->move(public_path('images'), $photo_name);
+            $photo->move(public_path('img/candidate'), $photo_name);
 
             Candidate::create([
                 'candidate_number' => $request->candidate_number,
@@ -60,7 +60,7 @@ class CandidateController extends Controller
         } catch (\Throwable $th) {
             dd($th);
             // Alert::error('Gagal', 'Gagal menambahkan data');
-            // return redirect()->back();
+            return redirect()->back();
         }
     }
 
@@ -103,7 +103,7 @@ class CandidateController extends Controller
             $candidate->category = $request->category;
 
             if ($request->hasFile('photo')) {
-                $old_photo = public_path('images/candidate/' . $candidate->photo);
+                $old_photo = public_path('img/candidate/' . $candidate->photo);
 
                 // Remove old photo
                 if (file_exists($old_photo)) {
