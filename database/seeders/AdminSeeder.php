@@ -19,6 +19,7 @@ class AdminSeeder extends Seeder
             'nim' => '69696969',
             'year' => 2021,
             'status' => 1,
+            'allow_auth_status' => 1,
             'major' => '-',
             'password' => bcrypt('kprsttnf!@#'),
         ]);
