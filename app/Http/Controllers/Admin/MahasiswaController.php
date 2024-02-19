@@ -140,10 +140,11 @@ class MahasiswaController extends Controller
 
             // Approve the user
             $user = User::find($id);
-            $user->status = 1;
+            $user->allow_auth_status = 1;
             $user->save();
 
-            return redirect()->to('/admin/login_manager');
+            Alert::success('sukses', 'Akun diapprove');
+            return redirect()->to('/admin/login-manager');
         } catch (\Throwable $th) {
             // Alert::error('Gagal', 'Gagal mengubah status');
 
