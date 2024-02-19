@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('nim')->unique();
             $table->integer('year');
             $table->integer('status')->default(0);
+            $table->integer('allow_auth_status')->default(0);
             $table->string('major');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->boolean('is_employee')->default(false);
             $table->rememberToken();
             $table->timestamps();

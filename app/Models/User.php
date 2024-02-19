@@ -26,6 +26,7 @@ class User extends Authenticatable
         'year',
         'major',
         'is_employee',
+        'allow_auth_status',
     ];
 
     /**
