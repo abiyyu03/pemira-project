@@ -8,7 +8,6 @@
             visibility: hidden;
         }
 
-
         .es-desk-hidden {
             display: none;
             float: left;
@@ -837,9 +836,9 @@
                                                             <tr>
                                                                 <td align="center" style="font-size: 0px">
                                                                     <img class="adapt-img"
-                                                                        src="{{ $message->embed(public_path() . '/asset_mail/logo_banner_gform.png') }}"
+                                                                        src="{{ $message->embed(public_path() . '/asset_mail/logo_banner_gform.png')}}"
                                                                         alt style="display: block" width="596"
-                                                                        height="149" layout="responsive" />
+                                                                        height="149" layout="responsive">
                                                                 </td>
                                                             </tr>
                                                         </table>
@@ -852,219 +851,135 @@
                             </td>
                         </tr>
                     </table>
-                    <table class="es-content" cellspacing="0" cellpadding="0" align="center">
-                        <tr>
-                            <td align="center">
-                                <table class="es-content-body" width="600" cellspacing="0" cellpadding="0"
-                                    bgcolor="#ffffff" align="center" style="
-                      border-left: 3px solid #3d85c6;
-                      border-right: 3px solid #3d85c6;
-                      border-bottom: 3px solid #3d85c6;
-                    ">
-                                    <tr>
-                                        <td class="es-p20t es-p20r es-p20l" align="left" style="
-                          background-image: url(/asset_mail/pemirabg2.png);
-                          background-repeat: no-repeat;
-                          background-position: center top;
-                        ">
-                                            <table width="100%" cellspacing="0" cellpadding="0">
-                                                <tr>
-                                                    <td width="556" valign="top" align="center">
-                                                        <table width="100%" cellspacing="0" cellpadding="0">
+                    <table class="es-content-body" width="600" cellspacing="0" cellpadding="0" bgcolor="#ffffff"
+                        align="center"
+                        style="border-left:3px solid #3d85c6;border-right:3px solid #3d85c6;border-bottom:3px solid #3d85c6;">
+                        <tbody>
+                            <tr>
+                                <td class="es-p20t es-p20r es-p20l esd-structure" align="left"
+                                    background="https://fecdenf.stripocdn.email/content/guids/CABINET_dec675d3e016bdfc42469bb01c2f5b7ff5e4545b6d973125e2d255ceab5dc018/images/pemira_2.png"
+                                    style="background-image: url(https://fecdenf.stripocdn.email/content/guids/CABINET_dec675d3e016bdfc42469bb01c2f5b7ff5e4545b6d973125e2d255ceab5dc018/images/pemira_2.png); background-repeat: no-repeat; background-position: center top;">
+                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                            <tr>
+                                                <td class="esd-container-frame" width="556" valign="top" align="center">
+                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                        <tbody>
                                                             <tr>
-                                                                <td align="center">
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        <strong>Assalamualaikum Warahmatullahi
-                                                                            Wabarakatuh</strong>
+                                                                <td align="center" class="esd-block-text">
+                                                                    <p>Assalamualaikum Warahmatullahi Wabarakatuh</p>
+                                                                    <p><br></p>
+                                                                    <p>Kepada Mahasiswa <strong>STT Terpadu Nurul
+                                                                            Fikri</strong></p>
+                                                                    <p>Semoga kita semua dalam keadaan
+                                                                        <strong>sehat</strong> dan
+                                                                        <strong>bahagia</strong>. Pemilihan Raya adalah
+                                                                        momentum penting bagi kita sebagai mahasiswa
+                                                                        untuk turut serta dalam menentukan arah
+                                                                        perjalanan kampus. Setiap <strong>suara</strong>
+                                                                        memiliki arti dan dampak besar.
                                                                     </p>
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        <br />
+                                                                    <p>Sebagai wujud keberagaman dan kesatuan,
+                                                                        <strong>Komisi Pemilihan Raya (KPR)</strong> STT
+                                                                        Terpadu Nurul Fikri mengajak Anda untuk
+                                                                        berpartisipasi dalam <strong>Pemilihan
+                                                                            Raya</strong> <strong>(PEMIRA)</strong> yang
+                                                                        akan dilaksanakan pada :&nbsp;
                                                                     </p>
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        Dear Saudara/i Mahasiswa
-                                                                        <strong>STT Terpadu Nurul Fikri</strong>
+                                                                    <p><br>📅 <strong>Tanggal</strong>
+                                                                        :&nbsp;&nbsp;<strong>26 - 27 Februari
+                                                                            2024</strong><br>⏰ <strong>Jam</strong> :
+                                                                        Senin <strong>09.00 - 17.00</strong> WIB &
+                                                                        Selasa <strong>09.00 - 13.00</strong><br>📍
+                                                                        <strong>Lokasi</strong> : Kampus A Lt.1 Di depan
+                                                                        Ruang sekretariat DPM & Kampus B B1 Di depan
+                                                                        Kelas B-106
                                                                     </p>
-                                                                    <br />
+                                                                    <p><br></p>
+                                                                    <p>❗Untuk dapat melakukan voting Anda harus
+                                                                        menggunakan <strong>Username</strong> dan
+                                                                        <strong>Password</strong> yang kami berikan
+                                                                        :&nbsp;<br>Username :
+                                                                        <strong>{{ $username }}</strong><br>Password :
+                                                                        <strong>{{ $password }}</strong><br>Pastikan
+                                                                        kerahasiaan
+                                                                        username dan password Anda terjaga
                                                                     </p>
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        Semoga Anda dalam keadaan sehat dan
-                                                                        bahagia. Sebagai wujud keberagaman dan
-                                                                        kesatuan,
-                                                                        <strong>Komisi Pemilihan Raya (KPR)</strong>
-                                                                        <strong>STT Nurul Fikri</strong> ingin
-                                                                        mengajak Anda untuk berpartisipasi
-                                                                        dalam<strong>
-                                                                            Pemilihan Raya Mahasiswa
-                                                                            (Pemira)</strong>
-                                                                        yang akan dilaksanakan.
-                                                                    </p>
-                                                                    <br />
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        📅
-                                                                        <strong>Tanggal Pemilihan: 26-27 Februari
-                                                                            2024</strong><br />⏰
-                                                                        <strong>Jam: 10.00 - 11.00 wib</strong><br />📍
-                                                                        <strong>Tempat: Kampus A &amp; B STT Terpadu
-                                                                            Nurul Fikri</strong>
-                                                                    </p>
-                                                                    <br />
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        Pemilihan Raya ini adalah momentum penting
-                                                                        bagi kita sebagai mahasiswa
-                                                                        <strong>STT Nurul Fikri</strong> untuk
-                                                                        turut serta dalam menentukan arah
-                                                                        perjalanan kampus. Setiap suara memiliki
-                                                                        arti dan dampak besar, oleh karena
-                                                                        itu,<strong>
-                                                                            Kehadiran dan partisipasi Anda sangat
-                                                                            kami harapkan</strong>.
-                                                                    </p>
-                                                                    <br />
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        <strong>Suara Anda memiliki peran
-                                                                            penting</strong>
-                                                                        dalam membentuk masa depan kampus ini.
-                                                                        Mari bersama-sama berkontribusi untuk
-                                                                        menciptakan lingkungan kampus yang lebih
-                                                                        baik.
-                                                                    </p>
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        Terima kasih atas perhatian dan
-                                                                        partisipasi Anda. Kami berharap dapat
-                                                                        bertemu dengan Anda pada hari pemilihan.
-                                                                    </p>
-                                                                    <br />
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        Wssalamualaikum Warahmatullahi
-                                                                        Wabarakatuh,<br /><strong>Komisi Pemilihan Raya
-                                                                            STT Terpadu Nurul
-                                                                            Fikri</strong>
-                                                                    </p>
-                                                                    <br />
-                                                                    <p style="
-                                        font-size: 15px;
-                                      ">
-                                                                        "<strong>Suara Anda, Pilihan Anda, Masa Depan
-                                                                            Kampus Bersama!</strong>"&nbsp;
-                                                                    </p>
+                                                                    <p><br><strong>Suara Anda</strong> berperan penting
+                                                                        dalam membentuk <strong>masa depan</strong>
+                                                                        kampus ini. Mari bersama-sama berkontribusi
+                                                                        untuk menciptakan lingkungan kampus yang lebih
+                                                                        baik.</p>
+                                                                    <p>Terima kasih atas perhatian dan partisipasinya.
+                                                                        Kami berharap dapat bertemu Anda pada hari
+                                                                        pemilihan.</p>
+                                                                    <p><br>Wassalamualaikum Warahmatullahi
+                                                                        Wabarakatuh,<br><strong>Komisi Pemilihan Raya
+                                                                            STT Terpadu Nurul Fikri</strong></p>
+                                                                    <p><br><strong>"Suara Anda, Pilihan Anda, Masa Depan
+                                                                            Kampus Bersama!"&nbsp;</strong></p>
                                                                 </td>
                                                             </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="es-p20t es-p20r es-p20l" align="left">
-                                            <table cellpadding="0" cellspacing="0" width="100%">
-                                                <tr>
-                                                    <td width="556" align="center" valign="top">
-                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="esd-structure es-p20t es-p20r es-p20l" align="left">
+                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td width="556" class="esd-container-frame" align="center" valign="top">
+                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
                                                             <tr>
-                                                                <td align="center">
-                                                                    <p>
-                                                                        <span style="font-size: 15px"><strong>Untuk info
-                                                                                lebih lanjut silakan
-                                                                                kunjungi website kami di bawah
-                                                                                ini</strong></span>
-                                                                        👇
-                                                                    </p>
+                                                                <td align="center" class="esd-block-text">
+                                                                    <p><span style="font-size:15px;"><strong>Untuk info
+                                                                                lebih lanjut silakan kunjungi website
+                                                                                kami di bawah ini</strong></span> 👇</p>
                                                                 </td>
                                                             </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="es-p20t es-p20r es-p20l" align="left">
-                                            <table cellpadding="0" cellspacing="0" width="100%">
-                                                <tr>
-                                                    <td width="556" align="center" valign="top">
-                                                        <table cellpadding="0" cellspacing="0" width="100%">
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="esd-structure es-p20t es-p20r es-p20l" align="left">
+                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td width="556" class="esd-container-frame" align="center" valign="top">
+                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                        <tbody>
                                                             <tr>
-                                                                <td align="center" class="es-p5b">
-                                                                    <!--[if mso
-                                      ]><a href="" target="_blank" hidden>
-                                        <v:roundrect
-                                          xmlns:v="urn:schemas-microsoft-com:vml"
-                                          xmlns:w="urn:schemas-microsoft-com:office:word"
-                                          esdevVmlButton
-                                          href=""
-                                          style="
-                                            height: 41px;
-                                            v-text-anchor: middle;
-                                            width: 235px;
-                                          "
-                                          arcsize="50%"
-                                          stroke="f"
-                                          fillcolor="#3d85c6"
-                                        >
-                                          <w:anchorlock></w:anchorlock>
-                                          <center
-                                            style="
-                                              color: #ffffff;
-                                              font-family: roboto,
-                                                'helvetica neue', helvetica,
-                                                arial, sans-serif;
-                                              font-size: 15px;
-                                              font-weight: 700;
-                                              line-height: 15px;
-                                              mso-text-raise: 1px;
-                                            "
-                                          >
-                                            Go to Pemira Website
-                                          </center>
-                                        </v:roundrect></a
-                                      >
-                                    <![endif]-->
-                                                                    <!--[if !mso]><!-- --><span
-                                                                        class="msohide es-button-border" style="
-                                        border-width: 0px;
-                                        border-color: #2cb543;
-                                        background: #3d85c6;
-                                      "><a href="" class="es-button msohide es-button-1706517096297" target="_blank"
-                                                                            style="
-                                          background: #3d85c6;
-                                          font-weight: bold;
-                                          font-family: roboto, 'helvetica neue',
-                                            helvetica, arial, sans-serif;
-                                          color: #ffffff;
-                                          padding: 10px 20px;
-                                          mso-border-alt: 10px solid #3d85c6;
-                                        ">Go to Pemira Website</a></span>
+                                                                <td align="center" class="esd-block-button es-p5b">
+                                                                    <span class="msohide es-button-border"
+                                                                        style="border-width: 0px; border-color: #2cb543; background: #3d85c6;"><a
+                                                                            href="https://pemira.nurulfikri.ac.id/"
+                                                                            class="es-button msohide es-button-1706517096297"
+                                                                            target="_blank"
+                                                                            style="background: #3d85c6; font-weight: bold; font-family: roboto, &quot;helvetica neue&quot;, helvetica, arial, sans-serif; color: #ffffff; padding: 10px 20px; mso-border-alt: 10px solid #3d85c6">Go
+                                                                            to Pemira Website</a></span>
                                                                     <!--<![endif]-->
                                                                 </td>
                                                             </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                     <table cellpadding="0" cellspacing="0" class="es-content" align="center">
                         <tr>
@@ -1082,7 +997,8 @@
                                                             <tr>
                                                                 <td class="es-p5t es-infoblock es-m-txt-c" align="left">
                                                                     <p>
-                                                                        <a target="_blank" href="">KPR-2024</a>
+                                                                        <a target="_blank"
+                                                                            href="https://pemira.nurulfikri.ac.id/">KPR-2024</a>
                                                                     </p>
                                                                 </td>
                                                             </tr>
@@ -1102,30 +1018,19 @@
                                                                         <tr>
                                                                             <td class="es-p10r" valign="top"
                                                                                 align="center">
-                                                                                <img title="Facebook"
-                                                                                    src="{{ $message->embed(public_path() . '/asset_mail/facebook-logo-black.png')}}"
-                                                                                    alt="Fb" width="32" height="32" />
-
+                                                                                <a target="_blank"
+                                                                                    href="https://www.instagram.com/kprsttnf/"><img
+                                                                                        title="Instagram"
+                                                                                        src="{{ $message->embed(public_path() . '/asset_mail/instagram.png')}}"
+                                                                                        alt="Inst" width="32"></a>
                                                                             </td>
                                                                             <td class="es-p10r" valign="top"
                                                                                 align="center">
-                                                                                <img title="Twitter"
-                                                                                    src="{{ $message->embed(public_path() . '/asset_mail/twitter-logo-black.png')}}"
-                                                                                    alt="Tw" width="32" height="32" />
-
-                                                                            </td>
-                                                                            <td class="es-p10r" valign="top"
-                                                                                align="center">
-                                                                                <img title="Instagram"
-                                                                                    src="{{ $message->embed(public_path() . '/asset_mail/instagram-logo-black.png')}}"
-                                                                                    alt="Inst" width="32" height="32" />
-
-                                                                            </td>
-                                                                            <td valign="top" align="center">
-                                                                                <img title="Youtube"
-                                                                                    src="{{ $message->embed(public_path() . '/asset_mail/youtube-logo-black.png')}}"
-                                                                                    alt="Yt" width="32" height="32" />
-
+                                                                                <a target="_blank"
+                                                                                    href="https://www.tiktok.com/@kprsttnf"><img
+                                                                                        title="Tiktok"
+                                                                                        src="{{ $message->embed(public_path() . '/asset_mail/tik-tok.png')}}"
+                                                                                        alt="TT" width="32"></a>
                                                                             </td>
                                                                         </tr>
                                                                     </table>

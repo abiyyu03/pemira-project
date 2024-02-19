@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class SendInvitationMail implements ShouldQueue
@@ -16,13 +17,17 @@ class SendInvitationMail implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     public $email;
+    public $username;
+    public $password;
 
     /**
      * Create a new job instance.
      */
-    public function __construct($email)
+    public function __construct($email, $username, $password)
     {
         $this->email = $email;
+        $this->username = $username;
+        $this->password = $password;
     }
 
     /**
@@ -30,6 +35,16 @@ class SendInvitationMail implements ShouldQueue
      */
     public function handle(): void
     {
-        Mail::to($this->email)->send(new SendInvitation());
+        // Query Transaction if success Send Email
+
+        DB::transaction(function () {
+            // Update Password
+            DB::table('users')->where('email', $this->email)->update([
+                'password' => bcrypt($this->password),
+            ]);
+        });
+
+        // Send Email
+        Mail::to($this->email)->send(new SendInvitation($this->username, $this->password));
     }
 }

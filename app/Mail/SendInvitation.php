@@ -16,9 +16,14 @@ class SendInvitation extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+
+    public $username;
+    public $password;
+
+    public function __construct($username, $password)
     {
-        //
+        $this->username = $username;
+        $this->password = $password;
     }
 
     /**
@@ -38,6 +43,10 @@ class SendInvitation extends Mailable
     {
         return new Content(
             view: 'mail.send_invitation',
+            with: [
+                'username' => $this->username,
+                'password' => $this->password,
+            ],
         );
     }
 

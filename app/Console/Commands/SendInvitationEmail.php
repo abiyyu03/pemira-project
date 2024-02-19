@@ -4,7 +4,9 @@ namespace App\Console\Commands;
 
 use App\Jobs\SendInvitationMail;
 use App\Mail\SendInvitation;
+use App\Models\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Mail;
 
 class SendInvitationEmail extends Command
@@ -28,19 +30,19 @@ class SendInvitationEmail extends Command
      */
     public function handle()
     {
-        $emails = [];
 
-        // Append 3 mail to 100 emails
-        for ($i = 0; $i < 33; $i++) {
-            array_push($emails, 'anotheriyyu29@gmail.com', 'prncyash127@gmail.com', 'asnurgames12@gmail.com');
+        // Get All User Who Have Not Voted Yet From Database where password is null
+        $users = User::whereNull('password')->limit(500)->get();
+
+        // Get username and password
+        foreach ($users as $user) {
+            $username = $user->nim;
+            $password = GenerateRandomString(10);
+            $email = $user->email;
+
+            // Send email to user
+            SendInvitationMail::dispatch($email, $username, $password);
         }
-
-        // Send email
-        foreach ($emails as $email) {
-            SendInvitationMail::dispatch($email);
-        }
-
-        // Mail::to('asnurgames12@gmail.com')->send(new SendInvitation());
 
         $this->info('Invitation email sent successfully!');
     }
