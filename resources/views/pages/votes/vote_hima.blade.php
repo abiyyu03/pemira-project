@@ -34,7 +34,7 @@
                 <p class="py-4">Misi</p>
                 <p class="pb-4">Menjadikan lorem</p> --}}
                         <div class="modal-action">
-                            <form action="{{ route('temp_vote') }}" method="post">
+                            <form action="{{ route('temp_vote') }}" method="post" onsubmit="UpdateVote()">
                                 @csrf
                                 <input type="hidden" name="candidate_id" value="{{ $item->id }}">
                                 <button type="submit" class="btn bg-green-500 text-secondary">Ya, Vote !</button>

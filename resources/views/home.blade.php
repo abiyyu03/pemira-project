@@ -655,6 +655,7 @@
 
             chart_presma.data.labels = labels_bem
             chart_presma.data.datasets[0].data = counts_bem
+            chart_presma.data.backgroundColor = '#9BD0F5';
 
             chart_presma.update();
 

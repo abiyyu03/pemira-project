@@ -29,6 +29,15 @@
             @yield('content')
             @include('sweetalert::alert')
         </div>
+
+        <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+        <script>
+            const socket = io("https://pemira.nurulfikri.ac.id");
+
+            const UpdateVote = () => {
+                socket.emit("update_vote")
+            };
+        </script>
     </div>
 </body>
 
