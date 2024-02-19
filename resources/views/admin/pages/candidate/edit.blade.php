@@ -134,8 +134,8 @@
                                             <div class="col-6">
                                                 <div class="form-group">
                                                     <label for="photo">Foto Kandidat</label>
-                                                    <input type="file" id="photo" class="form-control" name="photo"
-                                                        required>
+                                                    <input type="file" id="photo" class="form-control"
+                                                        name="photo">
                                                     @error('photo')
                                                         <div class="text-danger font-bold">{{ $message }}</div>
                                                     @enderror

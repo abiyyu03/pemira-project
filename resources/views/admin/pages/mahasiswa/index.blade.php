@@ -18,7 +18,7 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                            <li class="breadcrumb-item active" aria-current="page">Kandidat</li>
                         </ol>
                     </nav>
                 </div>
@@ -33,8 +33,6 @@
                         </h5> --}}
                     </div>
                     <div>
-                        <a href="{{ route('admin.mahasiswa_create') }}" class="btn btn-info"><i
-                                class="bi bi-file-earmark-excel"></i> Import Excel</a>
                         <a href="{{ route('admin.mahasiswa_create') }}" class="btn btn-primary"><i
                                 class="bi bi-plus-lg"></i>Tambah Data</a>
                     </div>
@@ -67,8 +65,9 @@
                                     </td>
                                     <td>{{ $item->major }}</td>
                                     <td>
-                                        <a href="{{ route('admin.mahasiswa_edit', $item->id) }}" class="btn btn-warning"><i
-                                                class="bi bi-pencil"></i> Edit</a>
+                                        <a href="{{ route('admin.mahasiswa_edit', $item->id) }}" class="btn btn-warning">
+                                            <i class="bi bi-pencil"></i> Edit
+                                        </a>
                                         <a href="{{ route('admin.mahasiswa_delete', $item->id) }}"
                                             onclick="return confirm('Apakah kamu yakin ingin menghapus data ini ?')"
                                             class="btn btn-danger"><i class="bi bi-trash"></i> Hapus</a>
@@ -79,7 +78,11 @@
                     </table>
                 </div>
             </div>
-
         </section>
     </div>
+    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#table1');
+    </script>
 @endsection

@@ -43,7 +43,7 @@
                                 <th>Email</th>
                                 <th>NIM</th>
                                 <th>Tahun Angkatan</th>
-                                {{-- <th>Status Voting</th> --}}
+                                <th>Status Login</th>
                                 <th>Jurusan</th>
                                 <th>Action</th>
                             </tr>
@@ -56,14 +56,17 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->nim }}</td>
                                     <td>{{ $item->year }}</td>
-                                    {{-- <td>{!! $item->status == 1
-                                        ? '<span class="btn btn-success">Sudah vote</span>'
-                                        : '<span class="btn btn-secondary">Belum vote</span>' !!}
-                                    </td> --}}
+                                    <td>{!! $item->allow_auth_status == 1
+                                        ? '<span class="btn btn-success">Allowed</span>'
+                                        : '<span class="btn btn-secondary">Need Approve</span>' !!}
+                                    </td>
                                     <td>{{ $item->major }}</td>
                                     <td>
-                                        <a href="{{ route('admin.mahasiswa_edit', $item->id) }}" class="btn btn-success"><i
-                                                class="bi bi-check"></i> Izinkan login</a>
+                                        <form action="{{ route('admin.login_manager_approve', $item->id) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-success"><i class="bi bi-check"></i>
+                                                Izinkan login</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

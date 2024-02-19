@@ -576,14 +576,17 @@
         const presma = document.getElementById('presma');
         const himti = document.getElementById('himti');
         const himsi = document.getElementById('himsi');
+
+        const data_voting = {};
+
         // presma
         const chart_presma = new Chart(presma, {
             type: 'doughnut',
             data: {
-                labels: ['Red', 'Blue'],
+                labels: [],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12, 19],
+                    data: [],
                     borderWidth: 1,
                 }, ],
             },
@@ -600,10 +603,10 @@
         const chart_himsi = new Chart(himsi, {
             type: 'doughnut',
             data: {
-                labels: ['Red', 'Blue'],
+                labels: [],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12, 19],
+                    data: [],
                     borderWidth: 1,
                 }, ],
             },
@@ -620,10 +623,10 @@
         const chart_himti = new Chart(himti, {
             type: 'doughnut',
             data: {
-                labels: ['Red', 'Blue'],
+                labels: [],
                 datasets: [{
                     label: '# of Votes',
-                    data: [12, 19],
+                    data: [],
                     borderWidth: 1,
                 }, ],
             },
@@ -638,10 +641,14 @@
         });
 
         // Connect Socket
-        const socket = io();
+        const socket = io("https://pemira.nurulfikri.ac.id");
 
         socket.on("connect", () => {
-            console.log("connected")
+            socket.emit("get_vote");
+        })
+
+        socket.on("live_count", (result) => {
+            console.log(result)
         })
 
         document.addEventListener('DOMContentLoaded', function() {
