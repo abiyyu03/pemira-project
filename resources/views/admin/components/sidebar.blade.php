@@ -50,13 +50,13 @@
 
                     <ul class="submenu ">
 
-                        <li class="submenu-item  ">
+                        {{-- <li class="submenu-item  ">
                             <a href="component-accordion.html" class="submenu-link">Configuration</a>
 
-                        </li>
+                        </li> --}}
 
                         <li class="submenu-item  ">
-                            <a href="component-alert.html" class="submenu-link">Logout</a>
+                            <a href="{{ route('logout') }}" class="submenu-link">Logout</a>
 
                         </li>
 

@@ -62,10 +62,10 @@ Route::prefix('admin')->group(function () {
 });
 
 // Auth Controller
-Route::prefix('auth')->group(function ($routes) {
-    $routes->get('/login', [AuthController::class, 'login'])->name('login');
-    $routes->post('/auth', [AuthController::class, 'auth'])->name('auth');
-    $routes->get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::prefix('auth')->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
 

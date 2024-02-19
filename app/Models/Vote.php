@@ -33,7 +33,8 @@ class Vote extends Model
     // Check if user has voted
     public static function hasVoted($user_id)
     {
-        return Vote::where('user_id', $user_id)->exists();
+        return User::find($user_id)->status == 1;
+        // return Vote::where('user_id', $user_id)->exists();
     }
 
     //get voters
@@ -69,7 +70,7 @@ class Vote extends Model
 
             // Update Staus User
             User::find($user_id)->update([
-                'status' => 0,
+                'status' => 1,
             ]);
         });
     }
