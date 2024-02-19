@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Alert;
 
 class AuthController extends Controller
 {
@@ -29,7 +30,8 @@ class AuthController extends Controller
 
     public function auth(Request $request)
     {
-        $limitTime = strtotime("now") < strtotime($_ENV['START_LOGIN']) || strtotime("now") > strtotime($_ENV['END_LOGIN']);
+        $limitTime = strtotime("now") < strtotime($_ENV['START_LOGIN'])
+            || strtotime("now") > strtotime($_ENV['END_LOGIN']);
         if ($request->nim !== $_ENV['ADMIN_NIM']) {
             if ($limitTime) {
                 // Alert::error('Gagal', 'Sesi Voting ditutup');
@@ -38,15 +40,21 @@ class AuthController extends Controller
         }
 
         $userData = $request->only(['nim', 'password']);
-        if (Auth::attempt($userData)) {
-            if (AuthHasRoles('Admin')) {
-                return redirect()->to('/admin');
+        $user = User::where('nim', $request->nim)->first();
+
+        if ($user->allow_auth_status == 1) { // if authenticated and auth status is allowed
+            if (Auth::attempt($userData)) {
+                if (AuthHasRoles('Admin')) {
+                    return redirect()->to('/admin');
+                } else {
+                    return redirect()->to('/ready');
+                }
             } else {
-                return redirect()->to('/ready');
+                return redirect()->route('login')->withInput();
             }
         } else {
-            // Alert::error('Gagal', 'NIM & Password Salah');
-            return redirect()->route('login')->withInput();
+            Alert::error('Error', 'Silakan menghubungi admin pemira untuk mendapatkan akses');
+            return redirect()->back();
         }
     }
 
@@ -81,7 +89,7 @@ class AuthController extends Controller
         $password = generateRandomString(8);
 
         // Update user status
-        $user->status = 1;
+        $user->allow_auth_status = 1;
         $user->password = Auth::hash($password);
 
         // Save user
