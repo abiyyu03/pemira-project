@@ -86,10 +86,6 @@ class VoteController extends Controller
 
     public function vote(Request $request, $votesId)
     {
-        // $request->validate([
-        //     'candidate_id' => 'required|exists:candidates,id',
-        // ]);
-
         if ($this->isUserAlreadyVote()) {
             return redirect()->route('home');
         }
