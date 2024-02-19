@@ -648,7 +648,35 @@
         })
 
         socket.on("live_count", (result) => {
-            console.log(result)
+            // Filter BEM
+            const data_bem = result.filter(((e) => e.kategori == "Badan Eksekutif Mahasiswa"))
+            let labels_bem = data_bem.map((e) => e.nama_kandidat)
+            let counts_bem = data_bem.map((e) => e.jumlah_suara)
+
+            chart_presma.data.labels = labels_bem
+            chart_presma.data.datasets[0].data = counts_bem
+
+            chart_presma.update();
+
+            // Filter HIM-TI
+            const data_ti = result.filter(((e) => e.kategori == "Himpunan Mahasiswa Teknik Informatika"))
+            let labels_ti = data_ti.map((e) => e.nama_kandidat)
+            let counts_ti = data_ti.map((e) => e.jumlah_suara)
+
+            chart_himti.data.labels = labels_ti
+            chart_himti.data.datasets[0].data = counts_ti
+
+            chart_himti.update();
+
+            // Filter HIM-SI
+            const data_si = result.filter(((e) => e.kategori == "Himpunan Mahasiswa Sistem Informasi"))
+            let labels_si = data_si.map((e) => e.nama_kandidat)
+            let counts_si = data_si.map((e) => e.jumlah_suara)
+
+            chart_himsi.data.labels = labels_si
+            chart_himsi.data.datasets[0].data = counts_si
+
+            chart_himsi.update();
         })
 
         document.addEventListener('DOMContentLoaded', function() {
