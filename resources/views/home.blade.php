@@ -655,7 +655,7 @@
 
             chart_presma.data.labels = labels_bem
             chart_presma.data.datasets[0].data = counts_bem
-            chart_presma.data.backgroundColor = '#9BD0F5';
+            chart_presma.data.datasets[0].backgroundColor = '#EE0000';
 
             chart_presma.update();
 
@@ -666,6 +666,7 @@
 
             chart_himti.data.labels = labels_ti
             chart_himti.data.datasets[0].data = counts_ti
+            chart_himti.data.datasets[0].backgroundColor = '#EE0000';
 
             chart_himti.update();
 
@@ -676,6 +677,7 @@
 
             chart_himsi.data.labels = labels_si
             chart_himsi.data.datasets[0].data = counts_si
+            chart_himsi.data.datasets[0].backgroundColor = '#EE0000';
 
             chart_himsi.update();
         })
