@@ -42,6 +42,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
+                                <th>Nickname</th>
                                 <th>Ketua</th>
                                 <th>Wakil Ketua</th>
                                 {{-- <th>Visi & Misi</th> --}}
@@ -53,6 +54,7 @@
                             @foreach ($candidates as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->nickname }}</td>
                                     <td>{{ $item->leader->name }}</td>
                                     <td>{{ $item->vice_leader->name }}</td>
                                     {{-- <td>{{ $item->vision_mission }}</td> --}}

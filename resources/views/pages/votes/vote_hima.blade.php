@@ -9,14 +9,13 @@
             @if ($item->category != 'Badan Eksekutif Mahasiswa')
                 <!-- cards -->
                 <div
-                    class="shadow rounded-xl bg-background p-6 mx-2 text-center transition ease-in-out delay-100 hover:scale-105">
+                    class="shadow rounded-xl bg-background p-6 mx-2 text-center 
+                    transition ease-in-out delay-100 hover:scale-105">
                     <a href="#" onclick="my_modal_{{ $item->id }}.showModal()">
-                        <img src="{{ asset('img/candidate/paslon2.jpg') }}" alt="" width="200" class="mx-auto" />
-                        <h1 class="my-6 text-3xl text-secondary">
-                            {{ $item->leader->name }}<br> &<br>
-                            {{ $item->vice_leader->name }}</h1>
+                        <img src="{{ asset('img/candidate/' . $item->photo) }}" alt="" width="200" class="mx-auto" />
+                        <h1 class="my-6 text-3xl text-main">
+                            {{ $item->nickname }}</h1>
                     </a>
-                    <!-- <a href="#" class="bg-secondary text-white p-3 rounded-lg">Visi & Misi</a> -->
                 </div>
                 <dialog id="my_modal_{{ $item->id }}" class="modal">
                     <div class="modal-box">
@@ -29,10 +28,6 @@
                             Apakah Kamu sudah yakin ?
                         </h3>
                         <p class="py-4">{!! $item->vision_mission !!}</p>
-                        {{-- <p class="py-4">Visi</p>
-                <p class="pb-4">Menjadikan lorem</p>
-                <p class="py-4">Misi</p>
-                <p class="pb-4">Menjadikan lorem</p> --}}
                         <div class="modal-action">
                             <form action="{{ route('temp_vote') }}" method="post" onsubmit="UpdateVote()">
                                 @csrf

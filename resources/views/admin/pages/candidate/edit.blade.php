@@ -53,7 +53,7 @@
                                                 <div class="form-group">
                                                     <label for="candidate_number">Nomor Urut</label>
                                                     <input type="number" id="candidate_number" class="form-control"
-                                                        name="candidate_number" min="1" max="10"
+                                                        name="candidate_number" min="0" max="10"
                                                         value="{{ $candidate->candidate_number }}" required>
                                                     @error('candidate_number')
                                                         <div class="text-danger font-bold">{{ $message }}</div>

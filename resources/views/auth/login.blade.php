@@ -10,9 +10,9 @@
                         <img src="{{ asset('img/logo.png') }}" alt="pemira_logo" width="170" class="mx-auto" />
                     </div>
                     <p class="text-center text-secondary">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur quae commodi quibusdam
-                        optio non aspernatur esse ratione dolorum maiores quisquam corrupti nobis sapiente pariatur
-                        ducimus deleniti dicta, deserunt molestias dolore!
+                        PEMIRA merupakan pesta demokrasi tahunan STT Terpadu Nurul Fikri untuk memilih dan
+                        menentukan Anggota DPM, Presma (Presiden Mahasiswa) - Wapresma ( Wakil Presiden Mahasiswa)
+                        dan Ketua - Wakil Ketua HIMA
                     </p>
                 </div>
                 <div class="shadow rounded-xl p-5 bg-card items-center sm:w-6/12 w-full mb-3">

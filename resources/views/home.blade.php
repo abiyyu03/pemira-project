@@ -179,25 +179,6 @@
                         </h2>
                     </a>
                 </div>
-                <!-- <div class="text-center md:grid-cols-3 md:grid items-end block">
-      <div class="">
-       <img src="img/illustration/register.svg" alt="" class="mx-auto" width="280" />
-       <h1 class="text-2xl">1. Registrasi</h1>
-      </div>
-      <div class="">
-       <img src="img/illustration/login.svg" alt="" class="mx-auto" width="280" />
-       <h1 class="text-2xl">2. Login</h1>
-      </div>
-      <div class="">
-       <img src="img/illustration/vote.svg" alt="" class="mx-auto" width="280" />
-       <h1 class="text-2xl">3. Voting</h1>
-      </div>
-     </div>
-     <div class="text-center flex self-center items-center my-4">
-      <div class="mx-auto"></div>
-      <div class="mx-auto"></div>
-      <div class="mx-auto"></div>
-     </div> -->
             </div>
         </section>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -219,61 +200,6 @@
             <div class="">
                 <div class="sm:flex block justify-center">
                     <!-- bem -->
-                    <!-- <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-4">
-       <h1
-        class="my-1 text-2xl text-background font-bold bg-secondary w-fit mx-auto p-2 rounded-xl"
-       >
-        HMPSSI
-       </h1>
-       <div class="flex mb-6 justify-center">
-        <div
-         class="rounded-xl p-6 text-center transition ease-in-out delay-100 hover:scale-105"
-        >
-         <img
-          src="img/candidate/paslon1.jpg"
-          alt=""
-          class="w-full sm:w-72"
-          class="mx-auto"
-         />
-         <h1 class="mt-6 mb-1 text-3xl text-secondary">Fateh</h1>
-         <h1 class="text-lg text-secondary">(Calon Presiden Mahasiswa)</h1>
-         <dialog id="my_modal_3" class="modal">
-          <div class="modal-box">
-           <form method="dialog">
-            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-             ✕
-            </button>
-           </form>
-           <h3 class="font-bold text-lg mb-4">Cek Visi & Misi beliau</h3>
-           <p class="py-4">Visi</p>
-           <p class="pb-4">Menjadikan lorem</p>
-           <p class="py-4">Misi</p>
-           <p class="pb-4">Menjadikan lorem</p>
-          </div>
-         </dialog>
-        </div>
-        <div
-         class="rounded-xl p-6 text-center transition ease-in-out delay-100 hover:scale-105"
-        >
-         <img
-          src="img/candidate/paslon2.jpg"
-          alt=""
-          class="w-full sm:w-72"
-          class="mx-auto"
-         />
-         <h1 class="mt-6 mb-1 text-3xl text-secondary">Ubay</h1>
-         <h1 class="text-lg text-secondary">(Calon Wakil Presiden Mahasiswa)</h1>
-        </div>
-       </div>
-       <button
-        type="button"
-        class="bg-main text-white p-3 rounded"
-        onclick="my_modal_3.showModal()"
-       >
-        Visi dan Misi
-       </button>
-      </div> -->
-                    <!-- bem -->
                     @foreach ($kandidat as $item)
                         <div class="text-center bg-background w-fit mx-4 p-4 rounded-xl shadow-lg pb-8 mb-7">
                             <h1
@@ -289,8 +215,8 @@
                             <div class="flex mb-2 justify-center">
                                 <div
                                     class="rounded-xl p-6 text-center transition ease-in-out delay-100 hover:scale-105">
-                                    <img src="img/candidate/paslon1.jpg" alt="" class="w-full sm:w-72"
-                                        class="mx-auto" />
+                                    <img src="{{ asset('img/candidate/' . $item->photo) }}" alt=""
+                                        class="w-full sm:w-72" class="mx-auto" />
                                     <h1 class="mt-6 mb-1 text-3xl text-secondary">{{ $item->nickname }}</h1>
                                     <dialog id="my_modal_{{ $item->id }}" class="modal">
                                         <div class="modal-box">
@@ -656,6 +582,7 @@
             chart_presma.data.labels = labels_bem
             chart_presma.data.datasets[0].data = counts_bem
             chart_presma.data.datasets[0].backgroundColor = '#EE0000';
+            chart_presma.data.datasets[1].backgroundColor = '#3B82F6';
 
             chart_presma.update();
 
@@ -667,6 +594,7 @@
             chart_himti.data.labels = labels_ti
             chart_himti.data.datasets[0].data = counts_ti
             chart_himti.data.datasets[0].backgroundColor = '#EE0000';
+            chart_himti.data.datasets[1].backgroundColor = '#3B82F6';
 
             chart_himti.update();
 
@@ -678,6 +606,7 @@
             chart_himsi.data.labels = labels_si
             chart_himsi.data.datasets[0].data = counts_si
             chart_himsi.data.datasets[0].backgroundColor = '#EE0000';
+            chart_himsi.data.datasets[1].backgroundColor = '#3B82F6';
 
             chart_himsi.update();
         })

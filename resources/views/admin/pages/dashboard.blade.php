@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Suara Masuk</h6>
-                                        <h6 class="font-extrabold mb-0">{{ '80.000' }}</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $totalSuaraMasuk }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -76,14 +76,14 @@
                                     </div>
                                     <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                         <h6 class="text-muted font-semibold">Sisa Suara</h6>
-                                        <h6 class="font-extrabold mb-0">112</h6>
+                                        <h6 class="font-extrabold mb-0">{{ $totalSisaSuara }}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-4">
                         <div class="card">
                             <div class="card-header">
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="col-12 col-lg-3">
                 {{-- <div class="card">
