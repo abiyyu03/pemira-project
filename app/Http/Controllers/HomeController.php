@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $kandidat = Candidate::get();
+        $kandidat = Candidate::where('candidate_number', '!=', '0')->get();
         return view('home', compact('kandidat'));
     }
 }
