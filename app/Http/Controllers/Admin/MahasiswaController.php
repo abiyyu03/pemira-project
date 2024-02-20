@@ -17,13 +17,13 @@ class MahasiswaController extends Controller
 
     public function index()
     {
-        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
+        $mahasiswa =  User::where('name', '!=', 'Admin KPR')->get();
         return view('admin.pages.mahasiswa.index', compact('mahasiswa'));
     }
 
     public function indexLoginManager()
     {
-        $mahasiswa = User::where('name', '!=', 'Admin KPR')->get();
+        $mahasiswa =  User::where('name', '!=', 'Admin KPR')->get();
         return view('admin.pages.login_manager.index', compact('mahasiswa'));
     }
 
