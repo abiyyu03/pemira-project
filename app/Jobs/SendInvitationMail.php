@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 class SendInvitationMail implements ShouldQueue
@@ -40,7 +41,7 @@ class SendInvitationMail implements ShouldQueue
         DB::transaction(function () {
             // Update Password
             DB::table('users')->where('email', $this->email)->update([
-                'password' => bcrypt($this->password),
+                'password' => Hash::make($this->password),
             ]);
         });
 
