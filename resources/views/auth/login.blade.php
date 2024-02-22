@@ -47,6 +47,11 @@
                             <button type="submit" class="p-3 bg-main text-white hover:bg-blue-400 rounded w-full">
                                 Login
                             </button>
+                            <p class="text-center mt-3">Apakah kamu kelas karyawan ?, <a href="/auth/karyawan/register"
+                                    class="underline">registrasi ulang disini</a></p>
+                            <hr class="my-4 border-black">
+                            <p class="text-center"> <a href="/" class="underline">Kembali ke Home</a>
+                            </p>
                         </div>
                     </form>
                 </div>

@@ -821,7 +821,8 @@
                         <tr>
                             <td align="center">
                                 <table class="es-header-body" width="600" cellspacing="0" cellpadding="0"
-                                    bgcolor="#ffffff" align="center" style="
+                                    bgcolor="#ffffff" align="center"
+                                    style="
                       border-left: 3px solid #3d85c6;
                       border-right: 3px solid #3d85c6;
                       border-top: 3px solid #3d85c6;
@@ -836,7 +837,7 @@
                                                             <tr>
                                                                 <td align="center" style="font-size: 0px">
                                                                     <img class="adapt-img"
-                                                                        src="{{ $message->embed(public_path() . '/asset_mail/logo_banner_gform.png')}}"
+                                                                        src="{{ $message->embed(public_path() . '/asset_mail/logo_banner_gform.png') }}"
                                                                         alt style="display: block" width="596"
                                                                         height="149" layout="responsive">
                                                                 </td>
@@ -856,13 +857,12 @@
                         style="border-left:3px solid #3d85c6;border-right:3px solid #3d85c6;border-bottom:3px solid #3d85c6;">
                         <tbody>
                             <tr>
-                                <td class="es-p20t es-p20r es-p20l esd-structure" align="left"
-                                    background="https://fecdenf.stripocdn.email/content/guids/CABINET_dec675d3e016bdfc42469bb01c2f5b7ff5e4545b6d973125e2d255ceab5dc018/images/pemira_2.png"
-                                    style="background-image: url(https://fecdenf.stripocdn.email/content/guids/CABINET_dec675d3e016bdfc42469bb01c2f5b7ff5e4545b6d973125e2d255ceab5dc018/images/pemira_2.png); background-repeat: no-repeat; background-position: center top;">
+                                <td class="es-p20t es-p20r es-p20l esd-structure" align="left">
                                     <table width="100%" cellspacing="0" cellpadding="0">
                                         <tbody>
                                             <tr>
-                                                <td class="esd-container-frame" width="556" valign="top" align="center">
+                                                <td class="esd-container-frame" width="556" valign="top"
+                                                    align="center">
                                                     <table width="100%" cellspacing="0" cellpadding="0">
                                                         <tbody>
                                                             <tr>
@@ -900,7 +900,8 @@
                                                                         menggunakan <strong>Username</strong> dan
                                                                         <strong>Password</strong> yang kami berikan
                                                                         :&nbsp;<br>Username :
-                                                                        <strong>{{ $username }}</strong><br>Password :
+                                                                        <strong>{{ $username }}</strong><br>Password
+                                                                        :
                                                                         <strong>{{ $password }}</strong><br>Pastikan
                                                                         kerahasiaan
                                                                         username dan password Anda terjaga
@@ -933,7 +934,8 @@
                                     <table cellpadding="0" cellspacing="0" width="100%">
                                         <tbody>
                                             <tr>
-                                                <td width="556" class="esd-container-frame" align="center" valign="top">
+                                                <td width="556" class="esd-container-frame" align="center"
+                                                    valign="top">
                                                     <table cellpadding="0" cellspacing="0" width="100%">
                                                         <tbody>
                                                             <tr>
@@ -956,7 +958,8 @@
                                     <table cellpadding="0" cellspacing="0" width="100%">
                                         <tbody>
                                             <tr>
-                                                <td width="556" class="esd-container-frame" align="center" valign="top">
+                                                <td width="556" class="esd-container-frame" align="center"
+                                                    valign="top">
                                                     <table cellpadding="0" cellspacing="0" width="100%">
                                                         <tbody>
                                                             <tr>
@@ -995,7 +998,8 @@
                                                         align="center">
                                                         <table width="100%" cellspacing="0" cellpadding="0">
                                                             <tr>
-                                                                <td class="es-p5t es-infoblock es-m-txt-c" align="left">
+                                                                <td class="es-p5t es-infoblock es-m-txt-c"
+                                                                    align="left">
                                                                     <p>
                                                                         <a target="_blank"
                                                                             href="https://pemira.nurulfikri.ac.id/">KPR-2024</a>
@@ -1021,16 +1025,18 @@
                                                                                 <a target="_blank"
                                                                                     href="https://www.instagram.com/kprsttnf/"><img
                                                                                         title="Instagram"
-                                                                                        src="{{ $message->embed(public_path() . '/asset_mail/instagram.png')}}"
-                                                                                        alt="Inst" width="32"></a>
+                                                                                        src="{{ $message->embed(public_path() . '/asset_mail/instagram.png') }}"
+                                                                                        alt="Inst"
+                                                                                        width="32"></a>
                                                                             </td>
                                                                             <td class="es-p10r" valign="top"
                                                                                 align="center">
                                                                                 <a target="_blank"
                                                                                     href="https://www.tiktok.com/@kprsttnf"><img
                                                                                         title="Tiktok"
-                                                                                        src="{{ $message->embed(public_path() . '/asset_mail/tik-tok.png')}}"
-                                                                                        alt="TT" width="32"></a>
+                                                                                        src="{{ $message->embed(public_path() . '/asset_mail/tik-tok.png') }}"
+                                                                                        alt="TT"
+                                                                                        width="32"></a>
                                                                             </td>
                                                                         </tr>
                                                                     </table>

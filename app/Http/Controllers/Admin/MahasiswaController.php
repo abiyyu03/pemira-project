@@ -23,7 +23,7 @@ class MahasiswaController extends Controller
 
     public function indexLoginManager()
     {
-        $mahasiswa =  User::where('name', '!=', 'Admin KPR')->get();
+        $mahasiswa =  User::where('name', '!=', 'Admin KPR')->paginate(100);
         return view('admin.pages.login_manager.index', compact('mahasiswa'));
     }
 

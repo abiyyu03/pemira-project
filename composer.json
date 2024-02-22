@@ -10,14 +10,11 @@
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
-        "intervention/image-laravel": "^1.0",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "laravel/ui": "^4.3",
-        "maatwebsite/excel": "^3.1",
         "predis/predis": "^2.2",
-        "realrashid/sweet-alert": "^7.1",
         "spatie/laravel-permission": "^6.3"
     },
     "require-dev": {

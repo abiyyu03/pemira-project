@@ -75,6 +75,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {{ $mahasiswa->links() }}
                 </div>
             </div>
 

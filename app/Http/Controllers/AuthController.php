@@ -40,7 +40,7 @@ class AuthController extends Controller
         }
 
         $userData = $request->only(['nim', 'password']);
-        $user = User::where('nim', $request->nim)->first();
+        $user = User::where('nim', $request->nim)->firstOrFail();
 
         if ($user->allow_auth_status == 1) { // if authenticated and auth status is allowed
             if (Auth::attempt($userData)) {
@@ -66,8 +66,8 @@ class AuthController extends Controller
     public function re_register(Request $request)
     {
         $request->validate([
-            'nim' => 'required|unique:users',
-            'email' => 'required|unique:users',
+            'nim' => 'required',
+            'email' => 'required',
         ]);
 
         // Check user is exist from nim and email
@@ -75,22 +75,18 @@ class AuthController extends Controller
 
         // Check user is employee
         if (!$user->is_employee) {
-            // Alert::error('Gagal', 'Anda Bukan Kelas Karyawan');
+            Alert::error('Gagal', 'Anda Bukan Kelas Karyawan');
             return redirect()->route('register');
         }
 
         // Check user is already registered
         if ($user->status == 1) {
-            // Alert::error('Gagal', 'Anda Sudah Terdaftar');
+            Alert::error('Gagal', 'Anda Sudah Terdaftar');
             return redirect()->route('register');
         }
 
-        // Generate password
-        $password = generateRandomString(8);
-
         // Update user status
         $user->allow_auth_status = 1;
-        $user->password = Auth::hash($password);
 
         // Save user
         $user->save();
@@ -98,7 +94,7 @@ class AuthController extends Controller
         // Send email
         // Mail::to($user->email)->send(new RegisterMail($user, $password));
 
-        // Alert::success('Berhasil', 'Anda Berhasil Terdaftar');
+        Alert::success('Berhasil', 'Anda Berhasil Terdaftar, silakan login dengan email dan password yang diterima di email');
 
         return redirect()->route('login');
     }

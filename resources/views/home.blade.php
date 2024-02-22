@@ -172,7 +172,7 @@
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
                 <div class="text-center">
-                    <a href="" target="_blank">
+                    <a href="#" target="_blank">
                         <h2 class="mt-4 font-bold bg-secondary w-fit p-3 text-center text-white mx-auto rounded">
                             <i class="fab fa-youtube"></i>
                             Tonton di Youtube
@@ -402,7 +402,7 @@
             <div class="text-center sm:flex justify-center items-center block">
                 <div class="mt-10">
                     <h2 class="text-secondary text-2xl sm:text-3xl font-bold text-center mx-5">
-                        Sudah Menentukan Pilihan ?
+                        Kelas Reguler ?
                     </h2>
                 </div>
                 <div class="mt-10">
@@ -411,9 +411,21 @@
                         Sekarang</a>
                 </div>
             </div>
-            <p class="text-center mt-7 text-secondary">
-                Sebelum mulai, pastikan kamu sudah memahami Syarat dan Ketentuan kami ya :)
+            <p class="text-center mt-12 mb-4 text-secondary text-xl">
+                Atau mungkin kamu 🤔
             </p>
+            <div class="text-center sm:flex justify-center items-center block">
+                <div class="mt-7">
+                    <h2 class="text-secondary text-2xl sm:text-3xl font-bold text-center mx-5">
+                        Kelas Karyawan ?
+                    </h2>
+                </div>
+                <div class="mt-10">
+                    <a href="/auth/karyawan/register"
+                        class="text-xl bg-secondary text-white hover:bg-indigo-800 transition delay-100 p-4 rounded-lg">
+                        Daftar Ulang</a>
+                </div>
+            </div>
         </section>
 
         <!-- footer -->
