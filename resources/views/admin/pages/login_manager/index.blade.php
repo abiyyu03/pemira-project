@@ -75,7 +75,7 @@
                             </tbody>
                         </table>
                     </div>
-                    {{ $mahasiswa->links() }}
+                    {{-- {{ $mahasiswa->links() }} --}}
                 </div>
             </div>
 
