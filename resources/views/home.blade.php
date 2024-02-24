@@ -592,9 +592,9 @@
             let counts_bem = data_bem.map((e) => e.jumlah_suara)
 
             chart_presma.data.labels = labels_bem
-            chart_presma.data.datasets?.[0]?.data = counts_bem
-            chart_presma.data.datasets?.[0]?.backgroundColor = '#EE0000';
-            chart_presma.data.datasets?.[1]?.backgroundColor = '#3B82F6';
+            chart_presma.data.datasets[0].data = counts_bem
+            chart_presma.data.datasets[0].backgroundColor = '#EE0000';
+            chart_presma.data.datasets[1]. ? backgroundColor = '#3B82F6';
 
             chart_presma.update();
 
@@ -605,9 +605,9 @@
             let counts_ti = data_ti.map((e) => e.jumlah_suara)
 
             chart_himti.data.labels = labels_ti
-            chart_himti.data.datasets?.[0]?.data = counts_ti
-            chart_himti.data.datasets?.[0]?.backgroundColor = '#EE0000';
-            chart_himti.data.datasets?.[1]?.backgroundColor = '#3B82F6';
+            chart_himti.data.datasets[0].data = counts_ti
+            chart_himti.data.datasets[0].backgroundColor = '#EE0000';
+            chart_himti.data.datasets[1]. ? backgroundColor = '#3B82F6';
 
             chart_himti.update();
 
@@ -618,9 +618,9 @@
             let counts_si = data_si.map((e) => e.jumlah_suara)
 
             chart_himsi.data.labels = labels_si
-            chart_himsi.data.datasets?.[0]?.data = counts_si
-            chart_himsi.data.datasets?.[0]?.backgroundColor = '#EE0000';
-            chart_himsi.data.datasets?.[1]?.backgroundColor = '#3B82F6';
+            chart_himsi.data.datasets[0].data = counts_si
+            chart_himsi.data.datasets[0].backgroundColor = '#EE0000';
+            chart_himsi.data.datasets[1]. ? backgroundColor = '#3B82F6';
 
             chart_himsi.update();
         })
