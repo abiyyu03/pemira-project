@@ -586,60 +586,60 @@
         })
 
         socket.on("live_count", (result) => {
-                    // Filter BEM
-                    const data_bem = result.filter(((e) => e.kategori == "Badan Eksekutif Mahasiswa"))
-                    let labels_bem = data_bem.map((e) => e.nama_kandidat)
-                    let counts_bem = data_bem.map((e) => e.jumlah_suara)
+            // Filter BEM
+            const data_bem = result.filter(((e) => e.kategori == "Badan Eksekutif Mahasiswa"))
+            let labels_bem = data_bem.map((e) => e.nama_kandidat)
+            let counts_bem = data_bem.map((e) => e.jumlah_suara)
 
-                    chart_presma.data.labels = labels_bem
-                    chart_presma.data.datasets?.[0 ?.data = counts_bem
-                            chart_presma.data.datasets?.[0 ?.backgroundColor = '#EE0000';
-                                chart_presma.data.datasets?.[1 ?.backgroundColor = '#3B82F6';
+            chart_presma.data.labels = labels_bem
+            chart_presma.data.datasets?.[0]?.data = counts_bem
+            chart_presma.data.datasets?.[0]?.backgroundColor = '#EE0000';
+            chart_presma.data.datasets?.[1]?.backgroundColor = '#3B82F6';
 
-                                    chart_presma.update();
+            chart_presma.update();
 
-                                    // Filter HIM-TI
-                                    const data_ti = result.filter(((e) => e.kategori ==
-                                        "Himpunan Mahasiswa Teknik Informatika"))
-                                    let labels_ti = data_ti.map((e) => e.nama_kandidat)
-                                    let counts_ti = data_ti.map((e) => e.jumlah_suara)
+            // Filter HIM-TI
+            const data_ti = result.filter(((e) => e.kategori ==
+                "Himpunan Mahasiswa Teknik Informatika"))
+            let labels_ti = data_ti.map((e) => e.nama_kandidat)
+            let counts_ti = data_ti.map((e) => e.jumlah_suara)
 
-                                    chart_himti.data.labels = labels_ti
-                                    chart_himti.data.datasets?.[0]?.data = counts_ti
-                                    chart_himti.data.datasets?.[0]?.backgroundColor = '#EE0000';
-                                    chart_himti.data.datasets?.[1]?.backgroundColor = '#3B82F6';
+            chart_himti.data.labels = labels_ti
+            chart_himti.data.datasets?.[0]?.data = counts_ti
+            chart_himti.data.datasets?.[0]?.backgroundColor = '#EE0000';
+            chart_himti.data.datasets?.[1]?.backgroundColor = '#3B82F6';
 
-                                    chart_himti.update();
+            chart_himti.update();
 
-                                    // Filter HIM-SI
-                                    const data_si = result.filter(((e) => e.kategori ==
-                                        "Himpunan Mahasiswa Sistem Informasi"))
-                                    let labels_si = data_si.map((e) => e.nama_kandidat)
-                                    let counts_si = data_si.map((e) => e.jumlah_suara)
+            // Filter HIM-SI
+            const data_si = result.filter(((e) => e.kategori ==
+                "Himpunan Mahasiswa Sistem Informasi"))
+            let labels_si = data_si.map((e) => e.nama_kandidat)
+            let counts_si = data_si.map((e) => e.jumlah_suara)
 
-                                    chart_himsi.data.labels = labels_si
-                                    chart_himsi.data.datasets?.[0]?.data = counts_si
-                                    chart_himsi.data.datasets?.[0]?.backgroundColor = '#EE0000';
-                                    chart_himsi.data.datasets?.[1]?.backgroundColor = '#3B82F6';
+            chart_himsi.data.labels = labels_si
+            chart_himsi.data.datasets?.[0]?.data = counts_si
+            chart_himsi.data.datasets?.[0]?.backgroundColor = '#EE0000';
+            chart_himsi.data.datasets?.[1]?.backgroundColor = '#3B82F6';
 
-                                    chart_himsi.update();
-                                })
+            chart_himsi.update();
+        })
 
-                            document.addEventListener('DOMContentLoaded', function() {
-                                // Simulate content loading delay (replace this with your actual content loading logic)
-                                setTimeout(function() {
-                                    var preloadContainer = document.getElementById('preload-container');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate content loading delay (replace this with your actual content loading logic)
+            setTimeout(function() {
+                var preloadContainer = document.getElementById('preload-container');
 
-                                    // Add a class to trigger the fade-out effect
-                                    preloadContainer.classList.add('fade-out');
+                // Add a class to trigger the fade-out effect
+                preloadContainer.classList.add('fade-out');
 
-                                    // After the fade-out animation completes, hide the preload container and show the main content
-                                    preloadContainer.addEventListener('transitionend', function() {
-                                        preloadContainer.style.display = 'none';
-                                        document.getElementById('main-content').style.display = 'block';
-                                    });
-                                }, 1000); // Adjust the delay time as needed
-                            });
+                // After the fade-out animation completes, hide the preload container and show the main content
+                preloadContainer.addEventListener('transitionend', function() {
+                    preloadContainer.style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                });
+            }, 1000); // Adjust the delay time as needed
+        });
     </script>
 </body>
 
