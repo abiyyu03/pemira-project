@@ -23,14 +23,14 @@
                     <form action="{{ route('register_process') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="">NIM</label>
+                            <label for="nim">NIM</label>
                             <input type="number" class="w-full sm:w-12/12 border-2 block border-secondary p-2 rounded-lg"
-                                required name="nim" placeholder="Masukan nim kamu" />
+                                required name="nim" id="nim" placeholder="Masukan nim kamu" />
                         </div>
                         <div class="mb-3">
-                            <label for="">Email</label>
+                            <label for="email">Email</label>
                             <input type="email" class="w-full sm:w-12/12 border-2 block border-secondary p-2 rounded-lg"
-                                required name="email" placeholder="Masukan email kampus kamu" />
+                                required name="email" id="email" placeholder="Masukan email kampus kamu" />
                         </div>
                         <div class="mt-5">
                             <button type="submit" class="p-3 bg-main text-white hover:bg-blue-400 rounded w-full">
