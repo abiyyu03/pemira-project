@@ -42,7 +42,7 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="login-table" class="table">
-                                        {{ $dataTable->table(['class' => 'table table-striped table-bordered']) }}
+                                        {{ $dataTable->table(['class' => 'table table-striped table-bordered', 'debug' => false]) }}
                                     </table>
                                     {{-- <table class="table table-striped" id="table1">
                                         <thead>
