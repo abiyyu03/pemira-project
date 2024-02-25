@@ -1,7 +1,7 @@
 @extends('layouts.vote')
 
 @section('content')
-    <h1 class="text-4xl mb-4 text-white text-center">
+    <h1 class="text-2xl sm:text-4xl mb-4 text-white text-center">
         Vote Presma dan Wapresma
     </h1>
     <div class="grid grid-cols-2 grid-gap-2">
@@ -31,7 +31,7 @@
                             <form action="{{ route('temp_vote') }}" method="post">
                                 @csrf
                                 <input type="hidden" name="candidate_id" value="{{ $item->id }}">
-                                <button type="submit" class="btn bg-green-500 text-secondary">Ya, Vote !</button>
+                                <button type="submit" class="btn bg-green-500 text-blue-900">Ya, Vote !</button>
                             </form>
                         </div>
                     </div>

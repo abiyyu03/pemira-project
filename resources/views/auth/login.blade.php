@@ -23,7 +23,8 @@
                             <label for="nim">NIM</label>
                             <input id="nim" type="nim"
                                 class="w-full sm:w-12/12 border-2 block border-secondary p-2 rounded-lg @error('nim') is-invalid @enderror"
-                                name="nim" value="{{ old('nim') }}" required autocomplete="nim" autofocus>
+                                name="nim" value="{{ old('nim') }}" required autocomplete="nim" autofocus
+                                placeholder="masukan nim kamu">
 
                             @error('nim')
                                 <span class="invalid-feedback" role="alert">
@@ -35,7 +36,8 @@
                             <label for="">Password</label>
                             <input id="password" type="password"
                                 class="w-full sm:w-12/12 border-2 block border-secondary p-2 rounded-lg @error('password') is-invalid @enderror"
-                                name="password" required autocomplete="current-password">
+                                name="password" required autocomplete="current-password"
+                                placeholder="password dilihat di email">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">

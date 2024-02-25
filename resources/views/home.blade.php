@@ -166,16 +166,22 @@
                 <hr class="border-b-4 border-secondary max-w-40 mx-auto mt-4" />
             </div>
             <div class="mx-auto">
-                ><iframe class="mx-auto sm:w-8/12 w-96" height="640"
+                {{-- ><iframe class="mx-auto sm:w-8/12 w-96" height="640"
                     src="https://www.youtube-nocookie.com/embed/mUzI86asVEY?si=RudYRKvkf7sLN7vK"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                    allowfullscreen></iframe> --}}
                 <div class="text-center">
-                    <a href="#" target="_blank">
+                    <a href="https://www.instagram.com/reel/C3uMD16snpY/" target="_blank">
                         <h2 class="mt-4 font-bold bg-secondary w-fit p-3 text-center text-white mx-auto rounded">
-                            <i class="fab fa-youtube"></i>
-                            Tonton di Youtube
+                            <i class="fab fa-instagram"></i>
+                            Voting Kelas Karyawan
+                        </h2>
+                    </a>
+                    <a href="https://www.instagram.com/reel/C3uLpUgMMAE/" target="_blank">
+                        <h2 class="mt-4 font-bold bg-secondary w-fit p-3 text-center text-white mx-auto rounded">
+                            <i class="fab fa-instagram"></i>
+                            Voting Kelas Reguler
                         </h2>
                     </a>
                 </div>
@@ -448,7 +454,7 @@
                     <a href="mailto:kprsttnf@gmail.com" class="mx-2 hover:text-main" target="_blank"><i
                             class="fas fa-envelope fa-2x"></i>
                     </a>
-                    <a href="https://wa.me/6283197034192" class="mx-2 hover:text-main"><i
+                    <a href="https://wa.me/6281928527469" class="mx-2 hover:text-main"><i
                             class="fab fa-whatsapp fa-2x" target="_blank"></i>
                     </a>
                     <a href="https://github.com/KPR-STTNF" class="mx-2 hover:text-main"><i
@@ -497,7 +503,7 @@
                 </div>
             </dialog>
         </footer>
-        <a href="https://wa.me/6283197034192" target="_blank" rel="noreferrer noopener">
+        <a href="https://wa.me/6281928527469" target="_blank" rel="noreferrer noopener">
             <div
                 class="flex items-center bg-green-500 w-fit p-4 rounded-full fixed z-20 right-8 bottom-12 transition ease-in-out delay-100 hover:scale-110">
                 <img src="img/brands/whatsapp-white.svg" class="w-8" alt="" />

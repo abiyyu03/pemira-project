@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Yajra\DataTables\Html\Builder;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,5 +23,6 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.env') === 'production') {
             \URL::forceScheme('https');
         }
+        Builder::useVite();
     }
 }

@@ -7,6 +7,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Alert;
+use App\DataTables\LoginManagerDataTable;
+use App\DataTables\UserDataTable;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\Facades\DataTables;
 
 class MahasiswaController extends Controller
 {
@@ -21,10 +25,29 @@ class MahasiswaController extends Controller
         return view('admin.pages.mahasiswa.index', compact('mahasiswa'));
     }
 
-    public function indexLoginManager()
+    public function indexLoginManager(UserDataTable $dataTable)
     {
-        $mahasiswa =  User::where('name', '!=', 'Admin KPR')->get();
-        return view('admin.pages.login_manager.index', compact('mahasiswa'));
+        // $user = User::where('name', '!=', 'Admin KPR')->get();
+        // return DataTables::eloquent($user)->addColumn('action', 'loginmanager.action')
+        //     ->editColumn('action', function ($query) {
+        //         return view('components.approve_button', compact('query'));
+        //         // return "<form action='" . route('admin.login_manager_approve', $query->id) . "method='POST'> " . csrf_field() . "<button type='submit' class='btn btn-success'><i class='bi bi-check'></i>Izinkan login</button></form>";
+        //     })
+        //     ->editColumn('allow_auth_status', function ($query) {
+        //         return ($query->allow_auth_status == 1 ? '<span class="btn btn-success">Allowed</span>' : '<span class="btn btn-secondary">Need Approve</span>');
+        //     })
+        //     ->toJson();
+        // return $dataTable->render('admin.pages.login_manager.index');
+
+        return view('admin.pages.login_manager.index');
+    }
+
+    public function loginManagerAPI(UserDataTable $dataTable)
+    {
+        $user = User::where('name', '!=', 'Admin KPR')->orderBy('name', 'ASC')->get();
+        // $user = DB::table('users')->where('name', '!=', 'Admin KPR');
+        // dd(DataTables::of($user)->toJson(true));
+        return DataTables::of($user)->make(true);
     }
 
     public function store(Request $request)
@@ -119,8 +142,6 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         try {
-            // Alert::success('Berhasil', 'Berhasil menghapus data');
-
             // Delete the user
             User::destroy($id);
 

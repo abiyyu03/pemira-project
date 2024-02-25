@@ -31,6 +31,10 @@
         </div>
     </div>
     @stack('scripts')
+    <script src="{{ asset('assets/extensions/jquery/jquery.min.js') }}"></script>
+
+    {{-- datatables --}}
+    <script src="{{ asset('assets/extensions/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/static/js/components/dark.js') }}"></script>
     <script src="{{ asset('assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 
@@ -43,8 +47,6 @@
     {{-- select 2 --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    {{-- datatables --}}
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
 </body>
 

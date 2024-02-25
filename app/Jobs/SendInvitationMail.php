@@ -39,7 +39,7 @@ class SendInvitationMail implements ShouldQueue
         // Query Transaction if success Send Email
 
         DB::transaction(function () {
-            // Update Password 
+            // Update Password
             DB::table('users')->where('email', $this->email)->update([
                 'password' => Hash::make($this->password),
             ]);
