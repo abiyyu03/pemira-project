@@ -52,7 +52,6 @@ class LoginDataTable extends DataTable
         return $this->builder()
             ->setTableId('login-table')
             ->columns($this->getColumns())
-            ->minifiedAjax()
             //->dom('Bfrtip')
             ->orderBy(1)
             ->selectStyleSingle()
