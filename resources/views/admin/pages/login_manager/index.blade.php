@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -40,7 +41,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    {{ $dataTable->table() }}
+                                    <table id="login-table" class="table">
+                                        {!! $dataTable->table(['class' => 'table table-striped table-bordered']) !!}
+                                    </table>
                                     {{-- <table class="table table-striped" id="table1">
                                         <thead>
                                             <tr>
@@ -70,8 +73,8 @@
     </div>
     <script src="{{ asset('assets/extensions/datatables-new/jquery.min.js') }}"></script>
     {{-- <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script> --}}
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+</script> --}}
     <script src="//cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('assets/extensions/datatables-new/datatable.min.js') }}"></script>
     {{ $dataTable->scripts() }}
