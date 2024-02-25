@@ -25,7 +25,7 @@ class MahasiswaController extends Controller
         return view('admin.pages.mahasiswa.index', compact('mahasiswa'));
     }
 
-    public function indexLoginManager(UserDataTable $dataTable)
+    public function indexLoginManager()
     {
         // $user = User::where('name', '!=', 'Admin KPR')->get();
         // return DataTables::eloquent($user)->addColumn('action', 'loginmanager.action')
@@ -42,7 +42,7 @@ class MahasiswaController extends Controller
         return view('admin.pages.login_manager.index');
     }
 
-    public function loginManagerAPI(UserDataTable $dataTable)
+    public function loginManagerAPI()
     {
         $user = User::where('name', '!=', 'Admin KPR')->orderBy('name', 'ASC')->get();
         // $user = DB::table('users')->where('name', '!=', 'Admin KPR');
