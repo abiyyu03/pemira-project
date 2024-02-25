@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\MahasiswaController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Yajra\DataTables\Facades\DataTables;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login-manager', function () {
+    $user = User::where('name', '!=', 'Admin KPR')->orderBy('name', 'ASC')->get();
+    return DataTables::of($user)
+        ->toJson();
+})->name('admin.api_login_manager');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

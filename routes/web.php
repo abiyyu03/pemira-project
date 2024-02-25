@@ -54,7 +54,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/vote/hmpssi', [VoterController::class, 'indexHMPSSI'])->name('admin.voter_hmpssi');
 
     Route::get('/login-manager', [MahasiswaController::class, 'indexLoginManager'])->name('admin.login_manager');
-    Route::get('/api/login-manager', [MahasiswaController::class, 'loginManagerAPI'])->name('admin.api_login_manager');
     Route::post('/login-manager/approve/{id}', [MahasiswaController::class, 'approve'])
         ->name('admin.login_manager_approve');
     // Route::get('/vote/bem/create', [VoterController::class, 'create'])->name('admin.kandidat_create');
