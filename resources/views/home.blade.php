@@ -408,28 +408,13 @@
             <div class="text-center sm:flex justify-center items-center block">
                 <div class="mt-10">
                     <h2 class="text-secondary text-2xl sm:text-3xl font-bold text-center mx-5">
-                        Kelas Reguler ?
+                        Sudah siap voting ?
                     </h2>
                 </div>
                 <div class="mt-10">
                     <a href="/ready"
                         class="text-xl bg-secondary text-white hover:bg-indigo-800 transition delay-100 p-4 rounded-lg">Vote
                         Sekarang</a>
-                </div>
-            </div>
-            <p class="text-center mt-12 mb-4 text-secondary text-xl">
-                Atau mungkin kamu 🤔
-            </p>
-            <div class="text-center sm:flex justify-center items-center block">
-                <div class="mt-7">
-                    <h2 class="text-secondary text-2xl sm:text-3xl font-bold text-center mx-5">
-                        Kelas Karyawan ?
-                    </h2>
-                </div>
-                <div class="mt-10">
-                    <a href="/auth/karyawan/register"
-                        class="text-xl bg-secondary text-white hover:bg-indigo-800 transition delay-100 p-4 rounded-lg">
-                        Daftar Ulang</a>
                 </div>
             </div>
         </section>
