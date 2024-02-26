@@ -597,7 +597,7 @@
             let labels_bem = data_bem.map((e) => e.nama_kandidat)
             let counts_bem = data_bem.map((e) => e.jumlah_suara)
 
-            chart_presma.data.labels = labels_bem
+            chart_presma.data.labels = ['Kotak Kosong', 'Fatih & Ubay']
             chart_presma.data.datasets[0].data = counts_bem
             chart_presma.data.datasets[0].backgroundColor = ['#EE0000', '#3B82F6'];
 
