@@ -609,7 +609,7 @@
             let labels_ti = data_ti.map((e) => e.nama_kandidat)
             let counts_ti = data_ti.map((e) => e.jumlah_suara)
 
-            chart_himti.data.labels = labels_ti
+            chart_himti.data.labels = ['Kotak Kosong', 'Hijri & Arif Fatih']
             chart_himti.data.datasets[0].data = counts_ti
             chart_himti.data.datasets[0].backgroundColor = ['#EE0000', '#3B82F6'];
 
@@ -621,7 +621,7 @@
             let labels_si = data_si.map((e) => e.nama_kandidat)
             let counts_si = data_si.map((e) => e.jumlah_suara)
 
-            chart_himsi.data.labels = labels_si
+            chart_himsi.data.labels = ['Kotak Kosong', 'Fajar & Ashrof'];
             chart_himsi.data.datasets[0].data = counts_si
             chart_himsi.data.datasets[0].backgroundColor = ['#EE0000', '#3B82F6'];
 
