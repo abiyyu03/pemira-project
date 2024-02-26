@@ -334,14 +334,14 @@
                 <div class="mx-12 mb-10">
                     <h2
                         class="text-center text-white p-2 mb-3 font-bold text-xl bg-secondary w-fit rounded-lg mx-auto">
-                        HMPSSI
+                        HMPSTI
                     </h2>
                     <canvas id="himti"></canvas>
                 </div>
                 <div class="mx-12 mb-10">
                     <h2
                         class="text-center text-white p-2 mb-3 font-bold text-xl bg-secondary w-fit rounded-lg mx-auto">
-                        HMPSTI
+                        HMPSSI
                     </h2>
                     <canvas id="himsi"></canvas>
                 </div>
