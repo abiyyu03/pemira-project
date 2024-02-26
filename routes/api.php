@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\MahasiswaController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,7 @@ Route::get('/login-manager', function () {
     return DataTables::of($user)
         ->toJson();
 })->name('admin.api_login_manager');
+Route::get('/registrasi_user/{nim}', [ResetPasswordController::class, 'registerUser'])->name('regis.store');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

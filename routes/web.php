@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MahasiswaController;
 use App\Http\Controllers\Admin\VoterController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ResetPasswordController;
 use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 
@@ -70,6 +71,7 @@ Route::prefix('auth')->group(function () {
     Route::get('/karyawan/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 're_register'])->name('register_process');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/register_password', [ResetPasswordController::class, 'index'])->name('regis');
 });
 
 
