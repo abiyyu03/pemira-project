@@ -80,7 +80,7 @@ class VoteController extends Controller
         //if user are not vote bem yet 
         if (!$request->session()->has('vote')) {
             $request->session()->put('vote', $voteId);
-            Alert::error('Berhasil', 'Berhasil votem BEM, yuk lanjut vote ketua HIMA pilihan kamu');
+            Alert::success('Berhasil', 'Berhasil votem BEM, yuk lanjut vote ketua HIMA pilihan kamu');
             return redirect()->to('/vote/hima');
         }
         $request->session()->push('vote', $request->candidate_id);
