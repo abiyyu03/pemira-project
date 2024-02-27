@@ -495,6 +495,7 @@
                 <!-- <p class="text-xl text-white font-bold ml-3">Hubungi Kami</p> -->
             </div>
         </a>
+        @include('sweetalert::alert')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
         integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="

@@ -36,6 +36,7 @@ class VoteController extends Controller
     public function indexBem()
     {
         if ($this->isUserAlreadyVote()) {
+            Alert::error('Ups', 'Maaf tidak bisa akses, kamu sudah voting !');
             return redirect()->route('home');
         }
 
@@ -49,6 +50,7 @@ class VoteController extends Controller
     public function indexHima()
     {
         if ($this->isUserAlreadyVote()) {
+            Alert::error('Ups', 'Maaf tidak bisa akses, kamu sudah voting !');
             return redirect()->route('home');
         }
 
@@ -61,6 +63,7 @@ class VoteController extends Controller
     public function readyToVote()
     {
         if ($this->isUserAlreadyVote()) {
+            Alert::error('Ups', 'Maaf tidak bisa akses, kamu sudah voting !');
             return redirect()->route('home');
         }
 
@@ -77,7 +80,7 @@ class VoteController extends Controller
         //if user are not vote bem yet 
         if (!$request->session()->has('vote')) {
             $request->session()->put('vote', $voteId);
-            Alert::success('Berhasil', 'Berhasil votem BEM, yuk lanjut vote ketua HIMA pilihan kamu');
+            Alert::error('Berhasil', 'Berhasil votem BEM, yuk lanjut vote ketua HIMA pilihan kamu');
             return redirect()->to('/vote/hima');
         }
         $request->session()->push('vote', $request->candidate_id);
@@ -87,6 +90,7 @@ class VoteController extends Controller
     public function vote(Request $request, $votesId)
     {
         if ($this->isUserAlreadyVote()) {
+            Alert::error('Ups', 'Maaf tidak bisa akses, kamu sudah voting !');
             return redirect()->route('home');
         }
 
