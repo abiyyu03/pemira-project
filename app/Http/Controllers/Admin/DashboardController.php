@@ -19,7 +19,7 @@ class DashboardController extends Controller
     {
         $totalMahasiswa = User::where('name', '!=', 'Admin KPR')->count();
         $totalKandidat = Candidate::count();
-        $totalSuaraMasuk = Vote::count();
+        $totalSuaraMasuk = Vote::groupBy('candidate_id')->count();
         $totalSisaSuara = User::where('name', '!=', 'Admin KPR')->where('status', '0')->count();
         return view('admin.pages.dashboard', compact(
             'totalMahasiswa',
